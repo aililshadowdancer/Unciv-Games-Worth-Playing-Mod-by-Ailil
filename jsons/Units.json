@@ -1,8 +1,8 @@
 [
 	{
-		"name": "Phasers",
+		"name": "Warlocks",
 		"unitType": "Ranged",
-		"uniqueTo": "Aliens",
+		"uniqueTo": "Unseelie Sidhe",
 		"replaces": "Machine Gun",
 		"movement": 2,
 		"strength": 90,
