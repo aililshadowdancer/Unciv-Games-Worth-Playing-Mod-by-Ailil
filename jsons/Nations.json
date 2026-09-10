@@ -1,40 +1,40 @@
 [
 	{
-		"name": "Aliens",
-		"leaderName": "Zyxxyz",
-		"adjective": ["alien"],
-		"startBias": ["Snow"],
-		"preferredVictoryType": "Scientific",
+		"name": "Unseelie Sidhe",
+		"leaderName": "Ailil Shadowdancer",
+		"adjective": ["Unseelie"],
+		"startBias": ["Forest"],
+		"preferredVictoryType": "Domination",
 		
-		"startIntroPart1": "We come in peace!",
-		"startIntroPart2": "This is an overpowered joke nation just as an example for the mods feature. Set Phasers to Obliterate!!",
+		"startIntroPart1": "By sqcred Moon & sacred Shadow, we shall have victory!",
+		"startIntroPart2": "The immortal Unseelie Sidhe. Fae Sovereigns, Lords & Ladies of the Winter Court.",
 		
-		"declaringWar": "Resistance is futile! Prepare to be assimilated!",
-		"attacked": "You want to play? Very funny!",
-		"defeated": "How is it possible that those Apes hurt us? The galactic senate will take care of them.",
-		"introduction": "As superior galactic entities, you are not worthy of our attention.",
+		"declaringWar": "I swear by sacred Moon & Shadow that blood shall flow!",
+		"attacked": "Brave but foolish, mortal. Now die...",
+		"defeated": "We fade back into sacred Shadow for now, but we shall return...",
+		"introduction": "We see you, stranger. Are you friend or foe, I wonder?",
 		
-		"neutralHello": "How are you doing?",
-		//"neutralLetsHearIt": ["Go on.","What do you say?","You may begin."],
-		//"neutralNo": ["We absolutely refuse.","No!","I refuse."],
-		//"neutralYes": ["Very good.","Of course, yes.","That is very good."],
+		"neutralHello": "Merry meet",
+		//"neutralLetsHearIt": ["Speak, we are listening.","How do you answer?","You may begin."],
+		//"neutralNo": ["We cannot accept.","Not as things stand!","I refuse."],
+		//"neutralYes": ["So shall it be.","It is foretold.","That is acceptable."],
 
 		"hateHello": "What do you want now?",
-		//"hateLetsHearIt": ["Speak!","What do you say?","Go on."],
-		//"hateNo": ["That is not possible!","We are not agreeing to that!","I beg your pardon?"],
-		//"hateYes": ["That is fine.","That is good enough.","Very well..."],
+		//"hateLetsHearIt": ["Speak!","Answer!?","We listen, for now..."],
+		//"hateNo": ["Drawn blades are better than false words...","You test our patience & mercy...","You speak unwisely..."],
+		//"hateYes": ["You have bought our mercy, for a while...","We accept your tribute.","We agree, for now..."],
 		
-		//"afterPeace": "Very well, all that fighting was getting boring anyway.",
-		"tradeRequest": "We bestow you the honor of this trade offer.",
-		"denounced": "The accusations of primitive lifeforms are beneath us.",
-		"declaringfriendship": "Let us become like friends!",
+		//"afterPeace": "Very well, all that fighting was getting dull anyway...",
+		"tradeRequest": "We grant you the honor of this trade offer...",
+		"denounced": "The accusations of mortals are beneath us.",
+		"declaringfriendship": "We shall swear an oath of friendship, for now...",
 
 		"outerColor": [16,16,16],
 		"innerColor": [255,200,200],
 		"unique": "MANIFEST_DESTINY",
-		"cities": ["The Hive","Q'Throczan","Q'Chovex","Q'Imphet","Q'Omphead","Q'Grecoks","Q'Vrelzieks","Q'Vronens","Q'Aerlae",
-			"Q'Phulnoith","Q'Creved","Q'Xirqen","Q'Gax","Q'Threqals","Q'Bhilmuk","Q'Mazea","Q'Zomirs","Q'Drorkrex","Q'Honkrath",
-			"Q'Zulgra","Q'Vahars","Q'Crindith","Q'Raavraes","Q'Bhoknais","Qho'Qru","Q'Dateatz","Q'Elnad","Q'Izien","Qol'Ell",
-			"Q'Dhihien","Q'Naquiel","Q'Ugneon","Q'Straquks","Q'Nulptr","Q'Ohfahl"]
+		"cities": ["Shadow-Throne","Moon-Fall","Sword-Shrine","Hidden-Holdfast","Dancing-Glade","Ebony-Oaks","Mid-Winter","Shrouded-Vale","Eclipse",
+			"Dark-Song","Crom-Cruach","Under-Halls","Misted-Glens","Ivory-Crescent","Star-Spires","Stone-Cicles","Lightless","Morrigan's-Wake","Arianhod's-Blessing",
+			"Fiddler's-Green","Herne's-Arrow","Three-Cairns","Sindari","Frost-Fall","Eostre's-Dolmen","Wayland's-Forge","Tirna'an Og","Banshee's-Wail","Sacred-Grove",
+			"Kelpie's-Cave","Silver-Marches","Storm-Haven","Nocturne","Kith's-Sorrow","Argent-Streams"]
 	}
 ]
