@@ -21,10 +21,10 @@
 
 		"hateHello": "What do you want now?",
 		//"hateLetsHearIt": ["Speak!","Answer!","We listen, for now."],
-		//"hateNo": ["Drawn blades are better than false words.","You test our patience & mercy.","You speak unwisely."],
+		//"hateNo": ["Blades beat false words.","You test patience & mercy.","You speak unwisely."],
 		//"hateYes": ["You have bought our mercy, for a while.","We accept your tribute.","We agree, for now."],
 		
-		//"afterPeace": "Very well, all that fighting was getting dull anyway.",
+		//"afterPeace": "Many lives shall be spared",
 		"tradeRequest": "We grant you the honor of this trade offer.",
 		"denounced": "The accusations of mortals are beneath us.",
 		"declaringfriendship": "We shall swear an oath of friendship, for now.",
