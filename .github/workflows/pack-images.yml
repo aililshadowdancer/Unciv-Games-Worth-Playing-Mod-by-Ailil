@@ -24,7 +24,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release download --repo yairm210/Unciv --pattern "Unciv*.jar" --output Unciv.jar
+          gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
       - name: Force Clean Old Assets
         run: rm -f game.png game.atlas Atlases.json
@@ -38,4 +38,3 @@ jobs:
           commit_message: "Forced rewrite of game.png and game.atlas texture sheets"
           file_pattern: 'game.png game.atlas Atlases.json'
           skip_dirty_check: true
-          
