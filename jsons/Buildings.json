@@ -1,35 +1,68 @@
 [
-	{
-		"name": "Grand Dancing Cavern",
-		"replaces": "Circus Maximus",
-		"uniqueTo": "Unseelie Sidhe",
-		"cost": 480,
-		"happiness": 12,
-		"culture": 12,
-		"science": 12,
-		"maintenance": 96,
-		"isNationalWonder": true,
-		"requiredBuildingInAllCities": "Colosseum",
-		"requiredTech": "Horseback Riding"
-	},
-	{
-		"name": "Sylvan Blessing",
-		"replaces": "Aqueduct",
-		"uniqueTo": "Unseelie Sidhe",
-		"cost": 80,
-		"hurryCostModifier": 160,
-		"happiness": 2,
-		"uniques": ["40% of food is carried over after a new citizen is born"],
-		"requiredTech": "Engineering"]
-	}
-	{
-  "name": "Hidden Paths",
-  "replaces": "Walls",
-  "uniqueTo": "Unseelie Sidhe",
-  "cost": 75,
-  "requiredTech": "Masonry",
-  "uniques": [
-    "[+50] City Defense",
-    "[+5] City Max Hit Points"
-  ]
-	}
+  {
+    "name": "Grand Dancing Cavern",
+    "replaces": "Circus Maximus",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 480,
+    "happiness": 12,
+    "culture": 12,
+    "science": 12,
+    "maintenance": 96,
+    "isNationalWonder": true,
+    "requiredBuildingInAllCities": "Colosseum",
+    "requiredTech": "Horseback Riding"
+  },
+  {
+    "name": "Sylvan Blessing",
+    "replaces": "Aqueduct",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 80,
+    "hurryCostModifier": 160,
+    "happiness": 2,
+    "uniques": ["[+40]% [Food] carries over after citizen growth"],
+    "requiredTech": "Engineering"
+  },
+  {
+    "name": "Hidden Paths",
+    "replaces": "Walls",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 75,
+    "requiredTech": "Masonry",
+    "uniques": [
+      "[+50] City Defense",
+      "[+5] City Max Hit Points"
+    ]
+  },
+  {
+    "name": "Ceilidh Hall",
+    "replaces": "Opera House",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 200,
+    "maintenance": 2,
+    "culture": 4,
+    "happiness": 3,
+    "requiredTech": "Acoustics",
+    "requiredBuilding": "Amphitheater"
+  },
+  {
+    "name": "Stone Circle",
+    "replaces": "Shrine",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 40,
+    "maintenance": 1,
+    "requiredTech": "Pottery",
+    "uniques": ["[+1 Faith]"]
+  },
+  {
+    "name": "Trial by Combat",
+    "replaces": "Courthouse",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 100,
+    "maintenance": 4,
+    "requiredTech": "Mathematics",
+    "uniques": [
+      "Removes unhappiness from occupied cities",
+      "Can only be built in occupied cities"
+    ]
+  }
+]
