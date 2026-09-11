@@ -16,8 +16,8 @@
     "tradeRequest": "We grant you the honor of this trade offer.",
     "denounced": "The accusations of mortals are beneath us.",
     "declaringfriendship": "We shall swear an oath of friendship, for now.",
-    "outerColor":[0, 0, 0],
-    "innerColor":[192, 192, 192],
+    "outerColor":[0,0,0],
+    "innerColor":[192,192,192],
     "uniqueUnits": [
       "Warlock",
       "Witch-Knight",
