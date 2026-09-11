@@ -11,18 +11,18 @@
 		
 		"declaringWar": "I swear by sacred Moon & Shadow that blood shall flow!",
 		"attacked": "Brave but foolish, mortal. Now die...",
-		"defeated": "We fade back into sacred Shadow for now, but we shall return...",
+		"defeated": "We fade back into legend for now, but we shall return...",
 		"introduction": "We see you, stranger. Are you friend or foe, I wonder?",
 		
 		"neutralHello": "Merry meet",
 		//"neutralLetsHearIt": ["Speak, we are listening.","How do you answer?","You may begin."],
-		//"neutralNo": ["We cannot accept.","Not as things stand!","I refuse."],
+		//"neutralNo": ["We cannot accept.","I must decline.","I refuse."],
 		//"neutralYes": ["So shall it be.","It is foretold.","That is acceptable."],
 
 		"hateHello": "You dare call upon me?",
 		//"hateLetsHearIt": ["Speak!","Answer!","We listen, for now."],
 		//"hateNo": ["Foolish words, you waste our time.","You test our patience & mercy.","You speak unwisely."],
-		//"hateYes": ["You hmspeak wisely, for once.","We cautiously accept.","We agree, for now."],
+		//"hateYes": ["You speak wisely, for once.","We cautiously accept.","We agree, for now."],
 		
 		//"afterPeace": "Much bloodshed shall be avoided, you show wisdom.",
 		"tradeRequest": "We grant you the honor of this trade offer.",
