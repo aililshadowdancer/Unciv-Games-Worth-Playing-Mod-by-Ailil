@@ -31,9 +31,6 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Force Clean Old Assets
-        run: rm -f game.png game.atlas Atlases.json
-
       - name: Run Headless Texture Packer
         run: |
           xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod .
@@ -41,7 +38,6 @@ jobs:
       - name: Commit and Push packed textures
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Forced rewrite of game.png and game.atlas texture sheets"
+          commit_message: "Auto-packed images into game.png and game.atlas"
           file_pattern: 'game.png game.atlas Atlases.json'
-          skip_dirty_check: true
           
