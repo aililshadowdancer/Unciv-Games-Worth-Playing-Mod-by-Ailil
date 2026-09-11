@@ -21,8 +21,10 @@ jobs:
           java-version: '17'
 
       - name: Download Unciv jar
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          wget -q https://github.com
+          gh release download --repo yairm210/Unciv --pattern "Unciv*.jar" --output Unciv.jar
 
       - name: Force Clean Old Assets
         run: rm -f game.png game.atlas Atlases.json
