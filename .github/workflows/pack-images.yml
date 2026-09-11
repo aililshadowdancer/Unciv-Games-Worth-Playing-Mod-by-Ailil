@@ -23,12 +23,16 @@ jobs:
       - name: Download Unciv jar
         run: wget https://github.com
 
+      - name: Force Clean Old Assets
+        run: rm -f game.png game.atlas Atlases.json
+
       - name: Run Texture Packer
         run: java -jar Unciv.jar --pack-mod .
 
       - name: Commit and Push packed textures
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-packed images into game.png and game.atlas"
+          commit_message: "Forced rewrite of game.png and game.atlas texture sheets"
           file_pattern: 'game.png game.atlas Atlases.json'
+          skip_dirty_check: true
           
