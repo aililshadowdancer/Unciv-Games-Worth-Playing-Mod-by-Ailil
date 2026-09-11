@@ -33,14 +33,15 @@
     ],
     "uniqueBuildings": [
       "Masquerade Ball",
-      "Dancing Cavern",
-      "Stone Circle",
-      "Trial by Combat",
+      "Sylvan Blessing",
       "Hidden Paths",
-      "Ceilidh Hall"
+      "Ceilidh Hall",
+      "Stone Circle",
+      "Trial by Combat"
     ],
     "uniques": [
-      "[+10]% Growth [In all cities] <during Golden Ages>"
+      "[+1 Faith] from adjacent [Unimproved] [Forest] tiles",
+      "[+1 Faith] from adjacent [Unimproved] [Forest] tiles <with adjacent [Unimproved] [Forest] tiles>"
     ],
     "cities": [
       "Shadow-Throne", "Moon-Fall", "Sword-Shrine", "Hidden-Holdfast", "Dancing-Glade", "Ebony-Oaks", "Mid-Winter", "Shrouded-Vale", "Eclipse",
