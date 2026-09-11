@@ -1,40 +1,52 @@
 [
-	{
-		"name": "Unseelie Sidhe",
-		"leaderName": "Ailil Shadowdancer",
-		"adjective": ["Unseelie"],
-		"startBias": ["Forest"],
-		"preferredVictoryType": "Domination",
-		
-		"startIntroPart1": "By Sacred Moon & Sacred Shadow, we shall have victory!",
-		"startIntroPart2": "The Unseelie Sidhe. Immortal Fae Sovereigns, Lords & Ladies of Air & Darkness.",
-		
-		"declaringWar": "I swear by sacred Moon & Shadow that blood shall flow!",
-		"attacked": "Brave but foolish, mortal. Now die...",
-		"defeated": "We fade back into legend for now, but we shall return...",
-		"introduction": "We see you, stranger. Are you friend or foe, I wonder?",
-		
-		"neutralHello": "Merry meet",
-		//"neutralLetsHearIt": ["Speak, we are listening.","How do you answer?","You may begin."],
-		//"neutralNo": ["We cannot accept.","I must decline.","I refuse."],
-		//"neutralYes": ["So shall it be.","It is foretold.","That is acceptable."],
-
-		"hateHello": "You dare call upon me?",
-		//"hateLetsHearIt": ["Speak!","Answer!","We listen, for now."],
-		//"hateNo": ["Foolish words, you waste our time.","You test our patience & mercy.","You speak unwisely."],
-		//"hateYes": ["You speak wisely, for once.","We cautiously accept.","We agree, for now."],
-		
-		//"afterPeace": "Much bloodshed shall be avoided, you show wisdom.",
-		"tradeRequest": "We grant you the honor of this trade offer.",
-		"denounced": "The accusations of mortals are beneath us.",
-		"declaringfriendship": "We shall swear an oath of friendship, for now.",
-
-		"outerColor": [85,93,80],
-		"innerColor": [229,228,226],
-		"unique": "Powers_Of_Air_&_Darkness",
-		"cities": ["Shadow-Throne","Moon-Fall","Sword-Shrine","Hidden-Holdfast","Dancing-Glade","Ebony-Oaks","Mid-Winter","Shrouded-Vale","Eclipse",
-			"Dark-Song","Crom-Cruach","Under-Halls","Misted-Glens","Ivory-Crescent","Star-Spires","Stone-Cicles","Lightless","Morrigan's-Wake","Arianhod's-Blessing",
-			"Fiddler's-Green","Herne's-Arrow","Three-Cairns","Sindari","Frost-Fall","Eostre's-Dolmen","Wayland's-Forge","Tirna'an Og","Banshee's-Wail","Sacred-Grove",
-			"Kelpie's-Cave","Silver-Marches","Storm-Haven","Nocturne","Kith's-Sorrow","Argent-Streams"]
-	}
+  {
+    "name": "Unseelie Sidhe",
+    "leaderName": "Ailil Shadowdancer",
+    "adjective": ["Unseelie"],
+    "startBias": ["Forest"],
+    "preferredVictoryType": "Domination",
+    "startIntroPart1": "By Sacred Moon & Sacred Shadow, we shall have victory!",
+    "startIntroPart2": "The Unseelie Sidhe. Immortal Fae Sovereigns, Lords & Ladies of Air & Darkness.",
+    "declaringWar": "I swear by sacred Moon & Shadow that blood shall flow!",
+    "attacked": "Brave but foolish, mortal. Now die...",
+    "defeated": "We fade back into legend for now, but we shall return...",
+    "introduction": "We see you, stranger. Are you friend or foe, I wonder?",
+    "neutralHello": "Merry meet",
+    "hateHello": "You dare call upon me?",
+    "tradeRequest": "We grant you the honor of this trade offer.",
+    "denounced": "The accusations of mortals are beneath us.",
+    "declaringfriendship": "We shall swear an oath of friendship, for now.",
+    "outerColor":,
+    "innerColor":,
+    "uniqueUnits": [
+      "Warlock",
+      "Witch-Knight",
+      "Eldritch-Knight",
+      "War-Dancer",
+      "Dock-Alfari Adept",
+      "Dock-Alfari Acolyte",
+      "Dock-Alfari Assassin",
+      "Dock-Alfari Ranger",
+      "Dragon-Spear Ballista",
+      "Marks-Mage",
+      "Spell-Sniper"
+    ],
+    "uniqueBuildings": [
+      "Grand Dancing Cavern",
+      "Dancing Cavern",
+      "Stone Circle",
+      "Trial by Combat",
+      "Hidden Paths",
+      "Ceilidh Hall"
+    ],
+    "uniques": [
+      "[+10]% Growth [In all cities] <during Golden Ages>"
+    ],
+    "cities": [
+      "Shadow-Throne", "Moon-Fall", "Sword-Shrine", "Hidden-Holdfast", "Dancing-Glade", "Ebony-Oaks", "Mid-Winter", "Shrouded-Vale", "Eclipse",
+      "Dark-Song", "Crom-Cruach", "Under-Halls", "Misted-Glens", "Ivory-Crescent", "Star-Spires", "Stone-Cicles", "Lightless", "Morrigan's-Wake", "Arianhod's-Blessing",
+      "Fiddler's-Green", "Herne's-Arrow", "Three-Cairns", "Sindari", "Frost-Fall", "Eostre's-Dolmen", "Wayland's-Forge", "Tirna'an Og", "Banshee's-Wail", "Sacred-Grove",
+      "Kelpie's-Cave", "Silver-Marches", "Storm-Haven", "Nocturne", "Kith's-Sorrow", "Argent-Streams"
+    ]
+  }
 ]
