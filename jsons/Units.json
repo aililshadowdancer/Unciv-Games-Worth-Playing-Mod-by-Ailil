@@ -1,19 +1,19 @@
 [
-  {
+    {
     "name": "Warlock",
     "unitType": "Archery",
     "uniqueTo": "Unseelie Sidhe",
     "replaces": "Machine Gun",
     "movement": 2,
-    "strength": 90,
-    "rangedStrength": 36,
-    "range": 2,
-    "cost": 500,
+    "strength": 60,
+    "rangedStrength": 60,
+    "range": 1,
+    "cost": 350,
     "requiredTech": "Ballistics",
-    "requiredResource": "Uranium",
-    "promotions": ["Logistics", "Accuracy I"],
+    "uniques": ["May not melee attack"],
     "attackSound": "phasers"
   },
+,
   {
     "name": "Witch-Knight",
     "replaces": "Longswordsman",
@@ -56,7 +56,6 @@
       "[+20]% Combat Strength <outside Friendly Territory>",
       "Ignores terrain cost"
     ]
-
   },
   {
     "name": "Dock-Alfari Adept",
