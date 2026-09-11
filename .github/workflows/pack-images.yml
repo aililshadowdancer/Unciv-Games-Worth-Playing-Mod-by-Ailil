@@ -22,7 +22,7 @@ jobs:
 
       - name: Download Unciv jar
         run: |
-          wget -q https://github.com -O Unciv.jar
+          wget -q https://github.com
 
       - name: Force Clean Old Assets
         run: rm -f game.png game.atlas Atlases.json
@@ -36,3 +36,4 @@ jobs:
           commit_message: "Forced rewrite of game.png and game.atlas texture sheets"
           file_pattern: 'game.png game.atlas Atlases.json'
           skip_dirty_check: true
+          
