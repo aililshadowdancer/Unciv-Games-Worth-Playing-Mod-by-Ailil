@@ -51,7 +51,7 @@
     "requiredTech": "Bronze Working",
     "obsoleteTech": "Civil Service",
     "uniques": [
-      "Earns [50]% of killed unit's [Strength] as [Faith]",
+      "Earns% of killed unit's [Strength] as [Faith]",
       "[+20]% Combat Strength <outside Friendly Territory>",
       "Ignores terrain cost"
     ]
