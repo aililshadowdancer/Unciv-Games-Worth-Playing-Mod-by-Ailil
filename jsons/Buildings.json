@@ -1,8 +1,8 @@
 [
 	{
-		"name": "Holodeck",
+		"name": "Grand Dancing Cavern",
 		"replaces": "Circus Maximus",
-		"uniqueTo": "Aliens",
+		"uniqueTo": "Unseelie Sidhe",
 		"cost": 480,
 		"happiness": 12,
 		"culture": 12,
@@ -13,13 +13,23 @@
 		"requiredTech": "Horseback Riding"
 	},
 	{
-		"name": "Breeders",
+		"name": "Sylvan Blessing",
 		"replaces": "Aqueduct",
-		"uniqueTo": "Aliens",
+		"uniqueTo": "Unseelie Sidhe",
 		"cost": 80,
 		"hurryCostModifier": 160,
 		"happiness": 2,
 		"uniques": ["40% of food is carried over after a new citizen is born"],
-		"requiredTech": "Engineering"
+		"requiredTech": "Engineering"]
 	}
-]
+	{
+  "name": "Hidden Paths",
+  "replaces": "Walls",
+  "uniqueTo": "Unseelie Sidhe",
+  "cost": 75,
+  "requiredTech": "Masonry",
+  "uniques": [
+    "[+50] City Defense",
+    "[+5] City Max Hit Points"
+  ]
+	}
