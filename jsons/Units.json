@@ -50,11 +50,13 @@
     "cost": 60,
     "requiredTech": "Bronze Working",
     "obsoleteTech": "Civil Service",
-    "uniques": [
-      "Earns% of killed unit's [Strength] as [Faith]",
+        "uniques": [
+      "Earn [50]% of killed [Military] unit's [Strength] as [Faith]"
+,
       "[+20]% Combat Strength <outside Friendly Territory>",
       "Ignores terrain cost"
     ]
+
   },
   {
     "name": "Dock-Alfari Adept",
