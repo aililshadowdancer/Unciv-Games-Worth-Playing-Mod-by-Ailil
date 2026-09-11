@@ -1,147 +1,148 @@
 [
-	{
-		"name": "Warlock",
-		"unitType": "Ranged",
-		"uniqueTo": "Unseelie Sidhe",
-		"replaces": "Machine Gun",
-		"movement": 2,
-		"strength": 90,
-		"rangedStrength": 36,
-		"range": 2,
-		"cost": 500,
-		"requiredTech": "Ballistics",
-		"requiredResource": "Uranium",
-		"promotions": ["Logistics","Accuracy I"],
-		"attackSound": "phasers"
-	}
-	{
-  "name": "Witch-Knight",
-  "replaces": "Longswordsman",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Sword",
-  "movement": 2,
-  "strength": 21,
-  "cost": 120,
-  "requiredTech": "Steel",
-  "obsoleteTech": "Gunpowder",
-  "upgradesTo": "Musketman",
-  "requiredResource": "Iron"
-	}
-	{
-  "name": "Eldritch-Knight",
-  "replaces": "Swordsman",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Sword",
-  "movement": 2,
-  "strength": 14,
-  "cost": 75,
-  "requiredTech": "Iron Working",
-  "obsoleteTech": "Gunpowder",
-  "requiredResource": "Iron"
-	}
-	{
-  "name": "War-Dancer",
-  "replaces": "Pictish Warrior",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Melee",
-  "movement": 2,
-  "strength": 13,
-  "cost": 60,
-  "requiredTech": "Bronze Working",
-  "obsoleteTech": "Civil Service",
-  "uniques": [
-    "Earns [50]% of killed unit's [Strength] as [Faith]",
-    "[+20]% Combat Strength <outside Friendly Territory>",
-    "Ignores terrain cost"
-  ]
-	}
-	{
-  "name": "Dock-Alfari Adept",
-  "replaces": "Archer",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Archery",
-  "movement": 2,
-  "strength": 5,
-  "rangedStrength": 7,
-  "cost": 50,
-  "requiredTech": "Archery",
-"uniques": ["Ignores terrain cost"]
-	}
-	{
-  "name": "Dock-Alfari Acolyte",
-  "replaces": "Scout",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Recon",
-  "movement": 2,
-  "strength": 5,
-  "cost": 25,
-  "uniques": ["Ignores terrain cost"]
-	}
-	{
-  "name": "Dock-Alfari Assassin",
-  "replaces": "Crossbowman",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Archery",
-  "movement": 2,
-  "strength": 13,
-  "rangedStrength": 18,
-  "range": 2,
-  "cost": 125,
-  "requiredTech": "Machinery",
-  "obsoletes": "Industrialization",
-"uniques": ["Ignores terrain cost"]
-	}
-	{
-  "name": "Dock-Alfari Ranger",
-  "replaces": "Composite Bowman",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Archery",
-  "movement": 2,
-  "strength": 7,
-  "rangedStrength": 11,
-  "cost": 80,
-  "requiredTech": "Construction",
-  "obsoletes": "Machinery",
-	"uniques": ["Ignores terrain cost"]
-	}
-	{
-  "name": "Dragon-Spear Ballista",
-  "replaces": "Roman Ballista",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Siege",
-  "movement": 2,
-  "strength": 8,
-  "rangedStrength": 10,
-  "range": 2,
-  "cost": 75,
-  "requiredTech": "Mathematics",
-  "obsoleteTech": "Physics",
-  "uniques": [
-    "Must set up to attack",
-    "[+200]%锐 Combat Strength vs [City] units"
-  ]
-	}
-	{
-  "name": "Marks-Mage",
-  "replaces": "Rifleman",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Gunpowder",
-  "movement": 2,
-  "strength": 34,
-  "cost": 225,
-  "requiredTech": "Rifling",
-  "obsoleteTech": "Replaceable Parts"
-	}
-	{
-  "name": "Spell-Sniper",
-  "replaces": "Musketman",
-  "uniqueTo": "Unseelie Sidhe",
-  "unitType": "Gunpowder",
-  "movement": 2,
-  "strength": 24,
-  "cost": 150,
-  "requiredTech": "Gunpowder",
-  "obsoleteTech": "Rifling",
-  "upgradesTo": "Marks-Mage"
-	}
+  {
+    "name": "Warlock",
+    "unitType": "Archery",
+    "uniqueTo": "Unseelie Sidhe",
+    "replaces": "Machine Gun",
+    "movement": 2,
+    "strength": 90,
+    "rangedStrength": 36,
+    "range": 2,
+    "cost": 500,
+    "requiredTech": "Ballistics",
+    "requiredResource": "Uranium",
+    "promotions": ["Logistics", "Accuracy I"],
+    "attackSound": "phasers"
+  },
+  {
+    "name": "Witch-Knight",
+    "replaces": "Longswordsman",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Sword",
+    "movement": 2,
+    "strength": 21,
+    "cost": 120,
+    "requiredTech": "Steel",
+    "obsoleteTech": "Gunpowder",
+    "upgradesTo": "Spell-Sniper",
+    "requiredResource": "Iron"
+  },
+  {
+    "name": "Eldritch-Knight",
+    "replaces": "Swordsman",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Sword",
+    "movement": 2,
+    "strength": 14,
+    "cost": 75,
+    "requiredTech": "Iron Working",
+    "obsoleteTech": "Gunpowder",
+    "upgradesTo": "Witch-Knight",
+    "requiredResource": "Iron"
+  },
+  {
+    "name": "War-Dancer",
+    "replaces": "Pictish Warrior",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Melee",
+    "movement": 2,
+    "strength": 13,
+    "cost": 60,
+    "requiredTech": "Bronze Working",
+    "obsoleteTech": "Civil Service",
+    "uniques": [
+      "Earns [50]% of killed unit's [Strength] as [Faith]",
+      "[+20]% Combat Strength <outside Friendly Territory>",
+      "Ignores terrain cost"
+    ]
+  },
+  {
+    "name": "Dock-Alfari Adept",
+    "replaces": "Archer",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Archery",
+    "movement": 2,
+    "strength": 5,
+    "rangedStrength": 7,
+    "cost": 50,
+    "requiredTech": "Archery",
+    "uniques": ["Ignores terrain cost"]
+  },
+  {
+    "name": "Dock-Alfari Acolyte",
+    "replaces": "Scout",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Recon",
+    "movement": 2,
+    "strength": 5,
+    "cost": 25,
+    "uniques": ["Ignores terrain cost"]
+  },
+  {
+    "name": "Dock-Alfari Assassin",
+    "replaces": "Crossbowman",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Archery",
+    "movement": 2,
+    "strength": 13,
+    "rangedStrength": 18,
+    "range": 2,
+    "cost": 125,
+    "requiredTech": "Machinery",
+    "obsoleteTech": "Industrialization",
+    "uniques": ["Ignores terrain cost"]
+  },
+  {
+    "name": "Dock-Alfari Ranger",
+    "replaces": "Composite Bowman",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Archery",
+    "movement": 2,
+    "strength": 7,
+    "rangedStrength": 11,
+    "cost": 80,
+    "requiredTech": "Construction",
+    "obsoleteTech": "Machinery",
+    "uniques": ["Ignores terrain cost"]
+  },
+  {
+    "name": "Dragon-Spear Ballista",
+    "replaces": "Roman Ballista",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Siege",
+    "movement": 2,
+    "strength": 8,
+    "rangedStrength": 10,
+    "range": 2,
+    "cost": 75,
+    "requiredTech": "Mathematics",
+    "obsoleteTech": "Physics",
+    "uniques": [
+      "Must set up to attack",
+      "[+200]% Combat Strength vs [City] units"
+    ]
+  },
+  {
+    "name": "Marks-Mage",
+    "replaces": "Rifleman",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Gunpowder",
+    "movement": 2,
+    "strength": 34,
+    "cost": 225,
+    "requiredTech": "Rifling",
+    "obsoleteTech": "Replaceable Parts"
+  },
+  {
+    "name": "Spell-Sniper",
+    "replaces": "Musketman",
+    "uniqueTo": "Unseelie Sidhe",
+    "unitType": "Gunpowder",
+    "movement": 2,
+    "strength": 24,
+    "cost": 150,
+    "requiredTech": "Gunpowder",
+    "obsoleteTech": "Rifling",
+    "upgradesTo": "Marks-Mage"
+  }
 ]
