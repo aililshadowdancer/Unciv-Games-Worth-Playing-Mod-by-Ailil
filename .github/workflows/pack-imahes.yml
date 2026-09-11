@@ -1,0 +1,30 @@
+name: Pack Mod Textures
+on:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Download Unciv jar
+        run: wget https://github.com
+
+      - name: Run Texture Packer
+        run: java -jar Unciv.jar --pack-mod .
+
+      - name: Commit and Push packed textures
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-packed images into game.png and game.atlas"
+          file_pattern: 'game.png game.atlas Atlases.json'
+          
