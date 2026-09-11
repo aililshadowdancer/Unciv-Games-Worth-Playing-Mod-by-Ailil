@@ -28,7 +28,7 @@
   "requiredResource": "Iron"
 	}
 	{
-  "name": "Eldritch Knight",
+  "name": "Eldritch-Knight",
   "replaces": "Swordsman",
   "uniqueTo": "Unseelie Sidhe",
   "unitType": "Sword",
