@@ -1,6 +1,7 @@
 [
   {
     "name": "Unseelie Sidhe",
+        "icon": "Unseelie Sidhe",
     "leaderName": "Ailil Shadowdancer",
     "adjective": ["Unseelie"],
     "startBias": ["Forest"],
@@ -37,7 +38,8 @@
       "Hidden Paths",
       "Ceilidh Hall",
       "Stone Circle",
-      "Trial by Combat"
+      "Trial by Combat",
+      "Dancing Cavern"
     ],
     "uniques": [
       "[+1 Faith] from adjacent [Unimproved] [Forest] tiles",
