@@ -24,7 +24,7 @@ jobs:
         run: |
           npm install sharp
 
-      - name: Compile Textures and Mappings Natively
+      - name: Compile True Coordinate Textures
         run: |
           node -e '
           const fs = require("fs");
@@ -33,7 +33,7 @@ jobs:
 
           const imgDir = "./Images";
           if (!fs.existsSync(imgDir)) {
-            console.log("Images directory not found.");
+            console.log("Images folder not found.");
             process.exit(1);
           }
 
@@ -44,16 +44,16 @@ jobs:
           }
 
           async function packImages() {
-            const sprites = [];
             const compositeArray = [];
+            const spriteMap = {};
             
-            // Fixed layout size for clean grid tracking calculations
-            const spriteSize = 128; 
+            // Standard crisp icon dimension limits
+            const size = 128; 
             const columns = 8;
             const rows = Math.ceil(files.length / columns);
             
-            const canvasWidth = columns * spriteSize;
-            const canvasHeight = rows * spriteSize;
+            const canvasWidth = columns * size;
+            const canvasHeight = rows * size;
 
             for (let i = 0; i < files.length; i++) {
               const file = files[i];
@@ -62,11 +62,10 @@ jobs:
               
               const col = i % columns;
               const row = Math.floor(i / columns);
-              const x = col * spriteSize;
-              const y = row * spriteSize;
+              const x = col * size;
+              const y = row * size;
 
-              // Resize graphics to match tight geometric frames cleanly
-              const resizedBuffer = await sharp(imgPath).resize(spriteSize, spriteSize).toBuffer();
+              const resizedBuffer = await sharp(imgPath).resize(size, size).toBuffer();
               
               compositeArray.push({
                 input: resizedBuffer,
@@ -74,10 +73,16 @@ jobs:
                 top: y
               });
 
-              sprites.push(name);
+              // Construct the highly specific multi-line layout properties Unciv expects
+              spriteMap[name] = {
+                x: x,
+                y: y,
+                w: size,
+                h: size
+              };
             }
 
-            // Stitches every image into one single grid sheet asset
+            // Stitches all pictures onto one grid sheet layout asset
             await sharp({
               create: {
                 width: canvasWidth,
@@ -90,14 +95,14 @@ jobs:
             .png()
             .toFile("game.png");
 
-            // Writes the exact string tracking map array the mobile app needs
+            // Build the exact structural key dictionary Unciv checks for validation
             const outputObj = [{
               name: "game.png",
-              sprites: sprites
+              sprites: spriteMap
             }];
 
             fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
-            console.log("Airtight multi-sheet texture sync completely built!");
+            console.log("True coordinate map data saved flawlessly!");
           }
 
           packImages().catch(err => {
@@ -112,9 +117,9 @@ jobs:
           git config --global user.email "actions@github.com"
           git add game.png Atlases.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed error-free unified single-sheet mod textures via sharp"
+            git commit -m "Auto-packed error-free structural layout textures via sharp"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No file adjustments detected."
+            echo "No file changes found to upload."
           fi
           
