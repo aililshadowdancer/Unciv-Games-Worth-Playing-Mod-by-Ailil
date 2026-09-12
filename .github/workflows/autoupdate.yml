@@ -11,12 +11,12 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
 
       - name: Set up Java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
@@ -37,31 +37,55 @@ jobs:
             exit 1
           fi
 
-      - name: Formulate Valid Atlases JSON
+      - name: Compile True JSON Mappings
         run: |
-          if [ -f "game.atlas" ]; then
-            echo "[" > Atlases.json
-            echo "  {" >> Atlases.json
-            echo "    \"name\": \"game.png\"," >> Atlases.json
-            echo "    \"sprites\": [" >> Atlases.json
+          node -e '
+          const fs = require("fs");
+          if (!fs.existsSync("game.atlas")) {
+            console.log("No raw atlas map discovered.");
+            process.exit(0);
+          }
+          const data = fs.readFileSync("game.atlas", "utf8");
+          const lines = data.split(/\r?\n/);
+          const spriteNames = [];
+          
+          let foundFirstImage = false;
+          for (let line of lines) {
+            line = line.trim();
+            if (!line) continue;
+            // Catch structural properties to isolate only pure sprite filenames
+            if (line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
+              foundFirstImage = true;
+              continue;
+            }
+            if (!foundFirstImage) continue;
+            // If the next configuration metadata properties match structural items, skip them
+            if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
+              continue;
+            }
+            // Ensure we block the master texture block itself from loop registration
+            if (line === "game.png") continue;
             
-            # Convert raw text entries into valid JSON strings
-            grep -E '^[a-zA-Z0-9_\-]+$' game.atlas | sed 's/.*/      "\0",/' >> Atlases.json
-            
-            # Clean up the trailing comma from the last element
-            sed -i '$ s/,$//' Atlases.json
-            
-            echo "    ]" >> Atlases.json
-            echo "  }" >> Atlases.json
-            echo "]" >> Atlases.json
-            rm game.atlas
-            echo "Successfully formulated valid JSON mapping schema!"
-          fi
+            spriteNames.push(line);
+          }
+          
+          const outputObj = [{
+            name: "game.png",
+            sprites: spriteNames
+          }];
+          
+          fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
+          console.log("Perfect JSON Mappings Compiled successfully!");
+          '
 
-      - name: Force Save Changes into Blank Placeholders
+      - name: Clean Temporary Assets
+        run: |
+          rm -f game.atlas Unciv.jar 2>/dev/null || true
+
+      - name: Force Save Changes into Placeholders
         uses: EndBug/add-and-commit@v9
         with:
           add: 'game.png Atlases.json'
           default_author: github_actions
-          message: 'Generated true JSON texture mappings'
+          message: 'Compiled perfectly structured JSON textures'
           
