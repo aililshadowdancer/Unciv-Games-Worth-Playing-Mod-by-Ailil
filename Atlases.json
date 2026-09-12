@@ -1,33 +1,24 @@
 [
   {
-    "name": "BuildingIcons.png",
+    "name": "game.png",
     "sprites": [
       "Ceilidh Hall",
+      "rotate: false",
       "Dancing Cavern",
-      "Hidden Paths",
-      "Masquerade Ball",
-      "Stone Circle",
-      "Sylvan Blessing",
-      "Trial by Combat"
-    ]
-  },
-  {
-    "name": "NationIcons.png",
-    "sprites": [
-      "Unseelie Sidhe"
-    ]
-  },
-  {
-    "name": "UnitIcons.png",
-    "sprites": [
       "Dock-Alfari Acolyte",
       "Dock-Alfari Adept",
       "Dock-Alfari Assassin",
       "Dock-Alfari Ranger",
       "Dragon-Spear Ballista",
       "Eldritch-Knight",
+      "Hidden Paths",
       "Marks-Mage",
+      "Masquerade Ball",
       "Spell-Sniper",
+      "Stone Circle",
+      "Sylvan Blessing",
+      "Trial by Combat",
+      "Unseelie Sidhe",
       "War-Dancer",
       "Warlock",
       "Witch-Knight"
