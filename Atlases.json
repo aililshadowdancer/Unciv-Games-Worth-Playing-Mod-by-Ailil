@@ -1,46 +1,54 @@
 [
   {
-    "name": "game.png",
+    "name": "BuildingIcons.png",
     "sprites": [
-      "BuildingIcons/Ceilidh Hall",
+      "Ceilidh Hall",
       "rotate: false",
-      "BuildingIcons/Dancing Cavern",
+      "Dancing Cavern",
       "rotate: false",
-      "BuildingIcons/Hidden Paths",
+      "Hidden Paths",
       "rotate: false",
-      "BuildingIcons/Masquerade Ball",
+      "Masquerade Ball",
       "rotate: false",
-      "BuildingIcons/Stone Circle",
+      "Stone Circle",
       "rotate: false",
-      "BuildingIcons/Sylvan Blessing",
+      "Sylvan Blessing",
       "rotate: false",
-      "BuildingIcons/Trial by Combat",
+      "Trial by Combat",
+      "rotate: false"
+    ]
+  },
+  {
+    "name": "NationIcons.png",
+    "sprites": [
+      "Unseelie Sidhe",
+      "rotate: false"
+    ]
+  },
+  {
+    "name": "UnitIcons.png",
+    "sprites": [
+      "Dock-Alfari Acolyte",
       "rotate: false",
-      "game2.png",
-      "UnitIcons/Dock-Alfari Acolyte",
+      "Dock-Alfari Adept",
       "rotate: false",
-      "UnitIcons/Dock-Alfari Adept",
+      "Dock-Alfari Assassin",
       "rotate: false",
-      "UnitIcons/Dock-Alfari Assassin",
+      "Dock-Alfari Ranger",
       "rotate: false",
-      "UnitIcons/Dock-Alfari Ranger",
+      "Dragon-Spear Ballista",
       "rotate: false",
-      "UnitIcons/Dragon-Spear Ballista",
+      "Eldritch-Knight",
       "rotate: false",
-      "UnitIcons/Eldritch-Knight",
+      "Marks-Mage",
       "rotate: false",
-      "UnitIcons/Marks-Mage",
+      "Spell-Sniper",
       "rotate: false",
-      "UnitIcons/Spell-Sniper",
+      "War-Dancer",
       "rotate: false",
-      "UnitIcons/War-Dancer",
+      "Warlock",
       "rotate: false",
-      "UnitIcons/Warlock",
-      "rotate: false",
-      "UnitIcons/Witch-Knight",
-      "rotate: false",
-      "game3.png",
-      "NationIcons/Unseelie Sidhe",
+      "Witch-Knight",
       "rotate: false"
     ]
   }
