@@ -27,30 +27,40 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Official LibGDX Packer
+      - name: Create Temporary Mod Directory Layout
         run: |
-          if [ -d "Images" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
-            echo "Texture Packing process finished flawlessly!"
-          else
-            echo "Error: Images folder was not found."
-            exit 1
-          fi
+          # Unciv desktop packer needs the images contained inside a "mods/YourModName" structure to trigger hooks
+          mkdir -p mock_game/mods/MyCustomMod
+          cp -r Images mock_game/mods/MyCustomMod/
+          cp Unciv.jar mock_game/
+
+      - name: Run Native Unciv Automated Packer
+        run: |
+          cd mock_game
+          # Launches headless Unciv which detects the loose folder and compiles game.png and game.atlas automatically
+          java -jar Unciv.jar --pack MyCustomMod
+          cd ..
+          
+          # Move the flawless cloud-compiled outputs back to your main repository root
+          cp mock_game/mods/MyCustomMod/game.png .
+          cp mock_game/mods/MyCustomMod/game.atlas .
 
       - name: Write Official Atlases Rule File
         run: |
-          # Writes the clean, native array template format that Unciv checks for validation
           echo '["game"]' > Atlases.json
 
       - name: Clean Pipeline Assets
         run: |
-          rm -f Unciv.jar 2>/dev/null || true
+          rm -rf mock_game Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          
+          # Ensure Git explicitly tracks the assets
           git add game.png game.atlas Atlases.json
+          
           if ! git diff-index --quiet HEAD; then
             git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
