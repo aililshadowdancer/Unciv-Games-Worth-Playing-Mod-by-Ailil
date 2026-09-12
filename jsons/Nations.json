@@ -19,6 +19,10 @@
     "declaringfriendship": "We shall swear an oath of friendship, for now.",
     "outerColor": [0,0,0],
     "innerColor": [192,192,192],
+    "favoredReligion": "Taoism",
+		"uniqueName": "Oak Groves",
+		"uniques": ["[+1 Faith] [in all cities] <with [1] to [2] neighboring [{unimproved} {Forest}] tiles>",
+			"[+2 Faith] [in all cities] <with [3] to [6] neighboring [{unimproved} {Forest}] tiles>"],
     "uniqueUnits": [
       "Warlock",
       "Witch-Knight",
@@ -40,12 +44,6 @@
       "Ceilidh Hall",
       "Stone Circle",
       "Trial by Combat"
-    ],
-    "uniqueName": "Forest Lore",
-  "uniques": [
-    "[+1 Faith] from adjacent [Unimproved] [Forest] tiles <in cities with [1] to [2] adjacent [Unimproved] [Forest] tiles>",
-    "[+2 Faith] from adjacent [Unimproved] [Forest] tiles <in cities with [3] to [99] adjacent [Unimproved] [Forest] tiles>",
-    "Start bias: [Forest]"
     ],
     "cities": [
       "Shadow-Throne", "Moon-Fall", "Sword-Shrine", "Hidden-Holdfast", "Dancing-Glade", "Ebony-Oaks", "Mid-Winter", "Shrouded-Vale", "Eclipse",
