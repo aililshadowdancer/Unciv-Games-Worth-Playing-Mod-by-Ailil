@@ -37,9 +37,10 @@ jobs:
           # Packs your flat Images folder into a native game.png and Atlases.json map automatically
           timeout 30s xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod . --headless --json-atlases || true
 
-      - name: Clean Pipeline Rest
+      - name: Delete Duplicate Folder Maps
         run: |
-          rm -f Unciv.jar 2>/dev/null || true
+          # Removes the accidental duplicate maps created by the Unciv game engine inside sub-directories
+          rm -f Images/Atlases.json Images/game.atlas Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
@@ -47,7 +48,7 @@ jobs:
           git config --global user.email "actions@github.com"
           git add game.png Atlases.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed error-free unified single-sheet mod textures"
+            git commit -m "Auto-packed clean unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes found to upload."
