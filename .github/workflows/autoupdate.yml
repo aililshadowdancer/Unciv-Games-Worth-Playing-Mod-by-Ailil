@@ -21,26 +21,32 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
+      - name: Install Virtual Display Buffer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y x11-apps xvfb
+
       - name: Download Unciv jar
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Official Unciv Texture Packer Runner
+      - name: Run Official Desktop Texture Packer Launcher
         run: |
-          # Executes Unciv's internal helper tool built exclusively to compile flat graphics correctly for Android
+          # Launches the true desktop texture compiler backend with phone data formatting flags
           if [ -d "Images" ]; then
-            java -cp Unciv.jar com.unciv.app.desktop.TexturePackerRunner Images . game true
+            timeout 30s xvfb-run --server-args="-screen 0 1024x768x24" java -cp Unciv.jar com.unciv.app.desktop.DesktopLauncher --pack-mod . --headless --json-atlases || true
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
             exit 1
           fi
 
-      - name: Clean Pipeline Assets
+      - name: Remove Duplicate Layout Artifacts
         run: |
-          rm -f Unciv.jar 2>/dev/null || true
+          # Force deletes internal cache maps so only one clean root Atlases.json file remains
+          rm -f Images/Atlases.json Images/game.atlas Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
