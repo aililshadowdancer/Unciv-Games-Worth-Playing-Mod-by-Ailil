@@ -45,33 +45,46 @@ jobs:
             console.log("No raw atlas map discovered.");
             process.exit(1);
           }
+          
           const data = fs.readFileSync("game.atlas", "utf8");
           const lines = data.split(/\r?\n/);
-          const spriteNames = [];
           
-          let foundFirstImage = false;
+          const atlasMap = {
+            name: "game.png",
+            sprites: {}
+          };
+          
+          let currentSprite = null;
+          
+          // Parse the raw layout data into absolute, true geometric JSON nodes
           for (let line of lines) {
             line = line.trim();
-            if (!line) continue;
-            if (line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
-              foundFirstImage = true;
+            if (!line || line === "game.png" || line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
               continue;
             }
-            if (!foundFirstImage) continue;
-            if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
-              continue;
-            }
-            if (line === "game.png") continue;
             
-            spriteNames.push(line);
+            if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
+              if (!currentSprite) continue;
+              const parts = line.split(":");
+              const key = parts[0].trim();
+              const vals = parts[1].split(",").map(v => parseInt(v.trim()));
+              
+              if (key === "xy") {
+                currentSprite.x = vals[0];
+                currentSprite.y = vals[1];
+              } else if (key === "size" || key === "orig") {
+                currentSprite.w = vals[0];
+                currentSprite.h = vals[1];
+              }
+            } else {
+              // This is a fresh image name string node
+              currentSprite = { name: line, x: 0, y: 0, w: 0, h: 0 };
+              atlasMap.sprites[line] = currentSprite;
+            }
           }
           
-          const outputObj = [{
-            name: "game.png",
-            sprites: [...new Set(spriteNames)]
-          }];
-          
-          fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
+          // Output the final payload using the native key-value pair map Unciv requires
+          fs.writeFileSync("Atlases.json", JSON.stringify([atlasMap], null, 2));
           console.log("Perfect JSON Mappings Compiled successfully!");
           '
 
@@ -90,3 +103,4 @@ jobs:
           else
             echo "No changes found to upload."
           fi
+          
