@@ -10,7 +10,6 @@
     "range": 1,
     "cost": 350,
     "requiredTech": "Ballistics",
-    "obsoleteTech": "Mobile Tactics",
     "upgradesTo": "Rocket Artillery",
     "uniques": ["May not melee attack"],
     "attackSound": "phasers"
