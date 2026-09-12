@@ -27,9 +27,8 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Pack All Target Image Folders
+      - name: Pack All Target Image Folders Cleanly
         run: |
-          # Individual commands to process each separate icon directory branch
           if [ -d "Images/BuildingIcons" ]; then
             java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/BuildingIcons . BuildingIcons
           fi
@@ -69,7 +68,9 @@ jobs:
               }
               if (line === `${sheet}.png`) continue;
 
-              spriteNames.push(line);
+              // Force-strips the folder paths out so Unciv reads a perfectly flat layout name
+              const cleanSprite = line.replace(/^(BuildingIcons|NationIcons|UnitIcons)[\/\\]/, "");
+              spriteNames.push(cleanSprite);
             }
 
             outputObj.push({
@@ -79,17 +80,22 @@ jobs:
           }
 
           fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
-          console.log("Multi-atlas JSON configuration mapping completed!");
+          console.log("Unified multi-atlas JSON tracking sync complete!");
           '
 
       - name: Clean Temporary Pipeline Assets
         run: |
           rm -f *.atlas Unciv.jar 2>/dev/null || true
 
-      - name: Force Save Multi-Sheet Graphics to Placeholders
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: 'BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json'
-          default_author: github_actions
-          message: 'Compiled multiple texture sheets for buildings, units, and nations'
+      - name: Force Terminal Git Commit and Push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Auto-packed mobile mod multi-sheet flattened textures"
+            git push origin HEAD:${{ github.ref_name }}
+          else
+            echo "No new changes detected."
+          fi
           
