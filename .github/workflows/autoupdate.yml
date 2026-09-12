@@ -53,19 +53,3 @@ jobs:
             echo "No changes found to upload."
           fi
           
-      - name: Clean Pipeline Rest
-        run: |
-          rm -f Unciv.jar 2>/dev/null || true
-
-      - name: Force Terminal Git Commit and Push
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed natively sanitized flat mobile multi-sheet textures"
-            git push origin HEAD:${{ github.ref_name }}
-          else
-            echo "No changes found to upload."
-          fi
-          
