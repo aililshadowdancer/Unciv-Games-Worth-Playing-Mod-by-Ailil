@@ -25,6 +25,7 @@
   },
   {
     "name": "Sylvan Blessing",
+    "name": "Sylvan Blessing",
     "icon": "Sylvan Blessing",
     "replaces": "Aqueduct",
     "uniqueTo": "Unseelie Sidhe",
@@ -42,8 +43,8 @@
     "cost": 75,
     "requiredTech": "Masonry",
     "uniques": [
-      "[+5] City Defense",
-      "[+50] City Max Hit Points"
+      "[+5] Strength",
+      "[+50] HP"
     ]
   },
   {
