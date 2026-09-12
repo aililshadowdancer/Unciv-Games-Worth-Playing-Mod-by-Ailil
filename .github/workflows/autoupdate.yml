@@ -32,9 +32,9 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Texture Packer
+      - name: Run Headless Texture Packer
         run: |
-          xvfb-run --server-args="-screen 0 1024x768x24" java -Djava.awt.headless=true -jar Unciv.jar --pack-mod .
+          xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod . --headless
 
       - name: Commit and Push packed textures
         uses: stefanzweifel/git-auto-commit-action@v5
