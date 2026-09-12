@@ -20,10 +20,12 @@
     "outerColor": [0,0,0],
     "innerColor": [192,192,192],
     "favoredReligion": "Taoism",
-		"uniqueName": "Oak Groves",
-		"uniques": ["[+1 Faith] [in all cities] <with [1] to [2] neighboring [{unimproved} {Forest}] tiles>",
-			"[+2 Faith] [in all cities] <with [3] to [6] neighboring [{unimproved} {Forest}] tiles>"],
-    "uniqueUnits": [
+    "uniques": [
+      "[+1 Faith] [in all cities] <with [1] neighboring [unimproved] [Forest] tiles>",
+      "[+2 Faith] [in all cities] <with [3] or more neighboring [unimproved] [Forest] tiles>"
+    ],
+    "uniqueToThisNation": [
+      "Oak Groves",
       "Warlock",
       "Witch-Knight",
       "Eldritch-Knight",
@@ -34,9 +36,7 @@
       "Dock-Alfari Ranger",
       "Dragon-Spear Ballista",
       "Marks-Mage",
-      "Spell-Sniper"
-    ],
-    "uniqueBuildings": [
+      "Spell-Sniper",
       "Masquerade Ball",
       "Dancing Cavern",
       "Sylvan Blessing",
@@ -52,4 +52,4 @@
       "Kelpie's-Cave", "Silver-Marches", "Storm-Haven", "Nocturne", "Kith's-Sorrow", "Argent-Streams"
     ]
   }
-    ]
+]
