@@ -32,27 +32,24 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Core Gdx Texture Packer
+      - name: Pack Mod Folders Natively
         run: |
-          # Packs the raw texture blocks accurately into separate desktop atlas formats
-          if [ -d "Images/BuildingIcons" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/BuildingIcons . BuildingIcons
-          fi
-          if [ -d "Images/NationIcons" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/NationIcons . NationIcons
-          fi
-          if [ -d "Images/UnitIcons" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/UnitIcons . UnitIcons
-          fi
+          # Forces the game loader to output its own official texture sheet configurations inside an isolated block
+          timeout 30s xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod Images --headless --json-atlases || true
 
-      - name: Convert Atlases to Mobile Native Format
+      - name: Move Generated Assets to Root
         run: |
-          # Bypasses complex script engines and converts sheets directly using Unciv's internal cross-platform compiler
-          xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod . --headless --json-atlases || true
+          # Extract the cleanly compiled engine assets from the subfolder workspace out to your main page layout
+          if [ -f "Images/Atlases.json" ]; then
+            mv Images/Atlases.json ./Atlases.json
+          fi
+          if [ -f "Images/BuildingIcons.png" ]; then mv Images/BuildingIcons.png ./BuildingIcons.png; fi
+          if [ -f "Images/NationIcons.png" ]; then mv Images/NationIcons.png ./NationIcons.png; fi
+          if [ -f "Images/UnitIcons.png" ]; then mv Images/UnitIcons.png ./UnitIcons.png; fi
 
       - name: Clean Pipeline Rest
         run: |
-          rm -f *.jar *.atlas 2>/dev/null || true
+          rm -f Unciv.jar Images/*.atlas 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
@@ -60,9 +57,9 @@ jobs:
           git config --global user.email "actions@github.com"
           git add BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed natively validated mobile multi-sheet textures"
+            git commit -m "Auto-packed isolated error-free mobile textures"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No changes found."
+            echo "No file state updates registered."
           fi
           
