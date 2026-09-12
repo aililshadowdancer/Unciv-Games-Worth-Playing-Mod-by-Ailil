@@ -10,6 +10,8 @@
     "range": 1,
     "cost": 350,
     "requiredTech": "Ballistics",
+    "obsoleteTech": "Mobile Tactical",
+    "upgradesTo": "Bazooka",
     "uniques": ["May not melee attack"],
     "attackSound": "phasers"
   },
@@ -22,8 +24,8 @@
     "strength": 21,
     "cost": 120,
     "requiredTech": "Steel",
-    "obsoleteTech": "Gunpowder",
-    "upgradesTo": "Spell-Sniper",
+    "obsoleteTech": "Rifling",
+    "upgradesTo": "Marks-Mage",
     "requiredResource": "Iron"
   },
   {
@@ -35,7 +37,7 @@
     "strength": 14,
     "cost": 75,
     "requiredTech": "Iron Working",
-    "obsoleteTech": "Gunpowder",
+    "obsoleteTech": "Steel",
     "upgradesTo": "Witch-Knight",
     "requiredResource": "Iron"
   },
@@ -49,8 +51,9 @@
     "cost": 60,
     "requiredTech": "Bronze Working",
     "obsoleteTech": "Civil Service",
+    "upgradesTo": "Pikeman",
     "uniques": [
-      "Earns% of killed unit's [Strength] as [Faith]",
+      "Earns [100]% of killed unit's [Strength] as [Faith]",
       "[+20]% Combat Strength when attacking <outside Friendly Territory>",
       "Ignores terrain cost"
     ]
@@ -65,6 +68,8 @@
     "rangedStrength": 7,
     "cost": 50,
     "requiredTech": "Archery",
+    "obsoleteTech": "Construction",
+    "upgradesTo": "Dock-Alfari Ranger",
     "uniques": ["Ignores terrain cost"]
   },
   {
@@ -89,6 +94,7 @@
     "cost": 125,
     "requiredTech": "Machinery",
     "obsoleteTech": "Industrialization",
+    "upgradesTo": "Gatling Gun",
     "uniques": ["Ignores terrain cost"]
   },
   {
@@ -102,6 +108,7 @@
     "cost": 80,
     "requiredTech": "Construction",
     "obsoleteTech": "Machinery",
+    "upgradesTo": "Dock-Alfari Assassin",
     "uniques": ["Ignores terrain cost"]
   },
   {
@@ -116,6 +123,7 @@
     "cost": 75,
     "requiredTech": "Mathematics",
     "obsoleteTech": "Physics",
+    "upgradesTo": "Trebuchet",
     "uniques": [
       "Must set up to attack",
       "[+200]% Combat Strength vs [City] <when attacking>"
