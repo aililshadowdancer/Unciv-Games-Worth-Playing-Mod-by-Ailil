@@ -27,70 +27,20 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Core Gdx Texture Packer
+      - name: Run Official Unciv Texture Packer Runner
         run: |
+          # Executes Unciv's internal helper tool built exclusively to compile flat graphics correctly for Android
           if [ -d "Images" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
+            java -cp Unciv.jar com.unciv.app.desktop.TexturePackerRunner Images . game true
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
             exit 1
           fi
 
-      - name: Compile Perfect Mobile Mappings
-        run: |
-          node -e '
-          const fs = require("fs");
-          if (!fs.existsSync("game.atlas")) {
-            console.log("No raw atlas map discovered.");
-            process.exit(1);
-          }
-          
-          const data = fs.readFileSync("game.atlas", "utf8");
-          const lines = data.split(/\r?\n/);
-          
-          const atlasMap = {
-            name: "game.png",
-            sprites: {}
-          };
-          
-          let currentSprite = null;
-          
-          // Parse the raw layout data into absolute, true geometric JSON nodes
-          for (let line of lines) {
-            line = line.trim();
-            if (!line || line === "game.png" || line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
-              continue;
-            }
-            
-            if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
-              if (!currentSprite) continue;
-              const parts = line.split(":");
-              const key = parts[0].trim();
-              const vals = parts[1].split(",").map(v => parseInt(v.trim()));
-              
-              if (key === "xy") {
-                currentSprite.x = vals[0];
-                currentSprite.y = vals[1];
-              } else if (key === "size" || key === "orig") {
-                currentSprite.w = vals[0];
-                currentSprite.h = vals[1];
-              }
-            } else {
-              // This is a fresh image name string node
-              currentSprite = { name: line, x: 0, y: 0, w: 0, h: 0 };
-              atlasMap.sprites[line] = currentSprite;
-            }
-          }
-          
-          // Output the final payload using the native key-value pair map Unciv requires
-          fs.writeFileSync("Atlases.json", JSON.stringify([atlasMap], null, 2));
-          console.log("Perfect JSON Mappings Compiled successfully!");
-          '
-
       - name: Clean Pipeline Assets
         run: |
-          rm -f game.atlas Unciv.jar 2>/dev/null || true
+          rm -f Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
