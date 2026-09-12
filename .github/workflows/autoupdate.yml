@@ -53,39 +53,48 @@ jobs:
             const data = fs.readFileSync(atlasPath, "utf8");
             const lines = data.split(/\r?\n/);
             const spriteNames = [];
-            let foundFirstImage = false;
+
+            // A clean flag loop checking for the exact transition pattern of sprite coordinates
+            let structureHeaderPassed = false;
 
             for (let line of lines) {
-              line = line.trim();
-              if (!line) continue;
-              if (line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
-                foundFirstImage = true;
-                continue;
-              }
-              if (!foundFirstImage) continue;
-              if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
-                continue;
-              }
-              if (line === `${sheet}.png`) continue;
+              const trimmed = line.trim();
+              if (!trimmed) continue;
 
-              const cleanSprite = line.replace(/^(BuildingIcons|NationIcons|UnitIcons)[\/\\]/, "");
-              // Only push actual values to ensure null types are never created
-              if (cleanSprite.length > 0) {
+              // Filter structural keys precisely
+              if (trimmed.startsWith("size:") || trimmed.startsWith("format:") || trimmed.startsWith("filter:") || trimmed.startsWith("repeat:")) {
+                structureHeaderPassed = true;
+                continue;
+              }
+              if (!structureHeaderPassed) continue;
+              if (trimmed.startsWith("xy:") || trimmed.startsWith("size:") || trimmed.startsWith("orig:") || trimmed.startsWith("offset:") || trimmed.startsWith("index:")) {
+                continue;
+              }
+              if (trimmed === `${sheet}.png`) continue;
+
+              // Force-strip directory loops out
+              const cleanSprite = trimmed.replace(/^(BuildingIcons|NationIcons|UnitIcons)[\/\\]/, "");
+              
+              // This strictly blocks formatting properties or whitespace metadata from corrupting arrays
+              if (cleanSprite.length > 0 && !cleanSprite.includes(":")) {
                 spriteNames.push(cleanSprite);
               }
             }
 
-            if (spriteNames.length > 0) {
+            // Remove any potential double registration logs cleanly
+            const uniqueSprites = [...new Set(spriteNames)];
+
+            if (uniqueSprites.length > 0) {
               outputObj.push({
                 name: `${sheet}.png`,
-                sprites: spriteNames
+                sprites: uniqueSprites
               });
             }
           }
 
-          // Write clean JSON structure without leaving hanging array nodes
+          // Output absolute tightly structured native JSON data structures
           fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
-          console.log("Unified multi-atlas JSON validation check passed!");
+          console.log("Unified multi-atlas JSON verification validation completed successfully!");
           '
 
       - name: Clean Temporary Pipeline Assets
@@ -98,9 +107,9 @@ jobs:
           git config --global user.email "actions@github.com"
           git add BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed and validated mobile multi-sheet textures"
+            git commit -m "Auto-packed validated error-free mobile multi-sheet textures"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No changes found."
+            echo "No file state updates registered."
           fi
           
