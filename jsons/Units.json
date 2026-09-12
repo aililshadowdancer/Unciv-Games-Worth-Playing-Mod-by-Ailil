@@ -52,8 +52,8 @@
     "obsoleteTech": "Civil Service",
     "upgradesTo": "Pikeman",
     "uniques": [
-  "Earns [50%]% of killed unit's [Combat Strength] as [Faith]",
-  "[+20]% Combat Strength when attacking <outside Friendly Territory>",
+  "uniques": ["Earn [50]% of killed [Military] unit's [Strength] as [Faith]"],
+  "[+20]% [Strength] when attacking <outside Friendly Territory>",
   "Ignores terrain cost"
     ]
   },
