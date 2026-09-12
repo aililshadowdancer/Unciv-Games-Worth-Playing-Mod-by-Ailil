@@ -27,65 +27,69 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Core Gdx Texture Packer
+      - name: Pack All Target Image Folders
         run: |
-          if [ -d "Images" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
-            echo "Texture Packing process finished flawlessly!"
-          else
-            echo "Error: Images folder was not found."
-            exit 1
+          # Individual commands to process each separate icon directory branch
+          if [ -d "Images/BuildingIcons" ]; then
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/BuildingIcons . BuildingIcons
+          fi
+          if [ -d "Images/NationIcons" ]; then
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/NationIcons . NationIcons
+          fi
+          if [ -d "Images/UnitIcons" ]; then
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/UnitIcons . UnitIcons
           fi
 
-      - name: Compile True JSON Mappings
+      - name: Compile Unified Mobile Atlases JSON
         run: |
           node -e '
           const fs = require("fs");
-          if (!fs.existsSync("game.atlas")) {
-            console.log("No raw atlas map discovered.");
-            process.exit(0);
-          }
-          const data = fs.readFileSync("game.atlas", "utf8");
-          const lines = data.split(/\r?\n/);
-          const spriteNames = [];
-          
-          let foundFirstImage = false;
-          for (let line of lines) {
-            line = line.trim();
-            if (!line) continue;
-            // Catch structural properties to isolate only pure sprite filenames
-            if (line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
-              foundFirstImage = true;
-              continue;
+          const targetSheets = ["BuildingIcons", "NationIcons", "UnitIcons"];
+          const outputObj = [];
+
+          for (const sheet of targetSheets) {
+            const atlasPath = `${sheet}.atlas`;
+            if (!fs.existsSync(atlasPath)) continue;
+
+            const data = fs.readFileSync(atlasPath, "utf8");
+            const lines = data.split(/\r?\n/);
+            const spriteNames = [];
+            let foundFirstImage = false;
+
+            for (let line of lines) {
+              line = line.trim();
+              if (!line) continue;
+              if (line.startsWith("size:") || line.startsWith("format:") || line.startsWith("filter:") || line.startsWith("repeat:")) {
+                foundFirstImage = true;
+                continue;
+              }
+              if (!foundFirstImage) continue;
+              if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
+                continue;
+              }
+              if (line === `${sheet}.png`) continue;
+
+              spriteNames.push(line);
             }
-            if (!foundFirstImage) continue;
-            // If the next configuration metadata properties match structural items, skip them
-            if (line.startsWith("xy:") || line.startsWith("size:") || line.startsWith("orig:") || line.startsWith("offset:") || line.startsWith("index:")) {
-              continue;
-            }
-            // Ensure we block the master texture block itself from loop registration
-            if (line === "game.png") continue;
-            
-            spriteNames.push(line);
+
+            outputObj.push({
+              name: `${sheet}.png`,
+              sprites: spriteNames
+            });
           }
-          
-          const outputObj = [{
-            name: "game.png",
-            sprites: spriteNames
-          }];
-          
+
           fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
-          console.log("Perfect JSON Mappings Compiled successfully!");
+          console.log("Multi-atlas JSON configuration mapping completed!");
           '
 
-      - name: Clean Temporary Assets
+      - name: Clean Temporary Pipeline Assets
         run: |
-          rm -f game.atlas Unciv.jar 2>/dev/null || true
+          rm -f *.atlas Unciv.jar 2>/dev/null || true
 
-      - name: Force Save Changes into Placeholders
+      - name: Force Save Multi-Sheet Graphics to Placeholders
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'game.png Atlases.json'
+          add: 'BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json'
           default_author: github_actions
-          message: 'Compiled perfectly structured JSON textures'
+          message: 'Compiled multiple texture sheets for buildings, units, and nations'
           
