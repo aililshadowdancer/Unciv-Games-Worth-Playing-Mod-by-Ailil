@@ -1,0 +1,43 @@
+name: Pack Mod Textures
+on:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Install Virtual Display Buffer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y x11-apps xvfb
+
+      - name: Download Unciv jar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
+
+      - name: Run Headless Texture Packer
+        run: |
+          xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod .
+
+      - name: Commit and Push packed textures
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-packed images into game.png and game.atlas"
+          file_pattern: 'game.png game.atlas Atlases.json'
+          
