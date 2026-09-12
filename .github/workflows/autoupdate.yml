@@ -34,7 +34,7 @@ jobs:
 
       - name: Run Headless Texture Packer
         run: |
-          xvfb-run --server-args="-screen 0 1024x768x24" java -cp Unciv.jar com.unciv.app.desktop.DesktopLauncher --pack-mod ${{ github.workspace }} --headless
+          xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod "/home/runner/work/Unciv-Games-Worth-Playing-Mod-by-Ailil/Unciv-Games-Worth-Playing-Mod-by-Ailil/Unciv-Games-Worth-Playing-Mod-by-Ailil" --headless
 
       - name: Commit and Push packed textures
         uses: stefanzweifel/git-auto-commit-action@v5
