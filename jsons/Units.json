@@ -11,8 +11,8 @@
     "cost": 350,
     "requiredTech": "Ballistics",
     "upgradesTo": "Rocket Artillery",
-    "uniques": ["May not melee attack"],
-    "attackSound": "phasers"
+    "uniques": ["Only attacks when ranged"],
+    "attackSound": "gunfire"
   },
   {
     "name": "Witch-Knight",
@@ -25,7 +25,8 @@
     "requiredTech": "Steel",
     "obsoleteTech": "Rifling",
     "upgradesTo": "Marks-Mage",
-    "requiredResource": "Iron"
+    "requiredResource": "Iron",
+    "attackSound": "metalhit"
   },
   {
     "name": "Eldritch-Knight",
@@ -38,7 +39,8 @@
     "requiredTech": "Iron Working",
     "obsoleteTech": "Steel",
     "upgradesTo": "Witch-Knight",
-    "requiredResource": "Iron"
+    "requiredResource": "Iron",
+    "attackSound": "metalhit"
   },
   {
     "name": "War-Dancer",
@@ -52,10 +54,12 @@
     "obsoleteTech": "Civil Service",
     "upgradesTo": "Pikeman",
     "uniques": [
-  "uniques": ["Earn [50]% of killed [Military] unit's [Strength] as [Faith]"],
-  "[+20]% [Strength] when attacking <outside Friendly Territory>",
-  "Ignores terrain cost"
-    ]
+      "Earn [50]% of killed [Military] unit's [Strength] as [Faith]",
+      "[+20]% Strength <when fighting in [Enemy Land] tiles>",
+      "[+20]% Strength <when fighting in [Neutral Land] tiles>",
+      "Ignores terrain cost"
+    ],
+    "attackSound": "metalhit"
   },
   {
     "name": "Dock-Alfari Adept",
@@ -69,7 +73,8 @@
     "requiredTech": "Archery",
     "obsoleteTech": "Construction",
     "upgradesTo": "Dock-Alfari Ranger",
-    "uniques": ["Ignores terrain cost"]
+    "uniques": ["Ignores terrain cost"],
+    "attackSound": "arrow"
   },
   {
     "name": "Dock-Alfari Acolyte",
@@ -79,7 +84,8 @@
     "movement": 2,
     "strength": 5,
     "cost": 25,
-    "uniques": ["Ignores terrain cost"]
+    "uniques": ["Ignores terrain cost"],
+    "attackSound": "noncombat"
   },
   {
     "name": "Dock-Alfari Assassin",
@@ -94,7 +100,8 @@
     "requiredTech": "Machinery",
     "obsoleteTech": "Industrialization",
     "upgradesTo": "Gatling Gun",
-    "uniques": ["Ignores terrain cost"]
+    "uniques": ["Ignores terrain cost"],
+    "attackSound": "arrow"
   },
   {
     "name": "Dock-Alfari Ranger",
@@ -108,7 +115,8 @@
     "requiredTech": "Construction",
     "obsoleteTech": "Machinery",
     "upgradesTo": "Dock-Alfari Assassin",
-    "uniques": ["Ignores terrain cost"]
+    "uniques": ["Ignores terrain cost"],
+    "attackSound": "arrow"
   },
   {
     "name": "Dragon-Spear Ballista",
@@ -124,9 +132,10 @@
     "obsoleteTech": "Physics",
     "upgradesTo": "Trebuchet",
     "uniques": [
-  "Must set up to attack",
-  "[+200]% Combat Strength vs [City] <when attacking>"
-    ]
+      "Must set up to attack",
+      "[+200]% Strength <vs cities> <when attacking>"
+    ],
+    "attackSound": "throw"
   },
   {
     "name": "Marks-Mage",
@@ -137,7 +146,8 @@
     "strength": 34,
     "cost": 225,
     "requiredTech": "Rifling",
-    "obsoleteTech": "Replaceable Parts"
+    "obsoleteTech": "Replaceable Parts",
+    "attackSound": "gunfire"
   },
   {
     "name": "Spell-Sniper",
@@ -149,6 +159,7 @@
     "cost": 150,
     "requiredTech": "Gunpowder",
     "obsoleteTech": "Rifling",
-    "upgradesTo": "Marks-Mage"
+    "upgradesTo": "Marks-Mage",
+    "attackSound": "gunfire"
   }
 ]
