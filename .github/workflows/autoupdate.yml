@@ -21,6 +21,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
+      - name: Install Virtual Display Buffer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y x11-apps xvfb
+
       - name: Download Unciv jar
         env:
           GH_TOKEN: ${{ github.token }}
@@ -29,7 +34,7 @@ jobs:
 
       - name: Run Texture Packer
         run: |
-          java -jar Unciv.jar --pack-mod .
+          xvfb-run --server-args="-screen 0 1024x768x24" java -Djava.awt.headless=true -jar Unciv.jar --pack-mod .
 
       - name: Commit and Push packed textures
         uses: stefanzweifel/git-auto-commit-action@v5
