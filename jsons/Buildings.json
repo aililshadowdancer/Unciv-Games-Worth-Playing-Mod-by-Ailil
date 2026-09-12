@@ -23,8 +23,7 @@
     "maintenance": 1,
     "requiredTech": "Construction"
   },
-    {
-      {
+  {
     "name": "Sylvan Blessing",
     "icon": "Sylvan Blessing",
     "replaces": "Aqueduct",
@@ -32,7 +31,7 @@
     "cost": 80,
     "hurryCostModifier": 160,
     "happiness": 2,
-    "uniques": ["[40]% Food is carried over after population increases [in this city]"],
+    "uniques": ["[+40]% [Food] carries over after citizen growth"],
     "requiredTech": "Engineering"
   },
   {
@@ -41,13 +40,11 @@
     "replaces": "Walls",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 75,
+    "cityStrength": 5,
+    "cityHealth": 50,
     "requiredTech": "Masonry",
-    "statBonus": {
-      "cityDefense": 5,
-      "cityHealth": 50
-    }
-  }
-,
+    "uniques": ["Destroyed when the city is captured"]
+  },
   {
     "name": "Ceilidh Hall",
     "icon": "Ceilidh Hall",
@@ -80,7 +77,7 @@
     "requiredTech": "Mathematics",
     "uniques": [
       "Removes extra unhappiness from annexed cities",
-      "Can only be built {in [Annexed] cities}"
+      "Can only be built <in [Annexed] cities>"
     ]
   }
 ]
