@@ -1,147 +1,26 @@
 [
   {
     "name": "game.png",
-    "sprites": {
-      "Ceilidh Hall": {
-        "name": "Ceilidh Hall",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "rotate: false": {
-        "name": "rotate: false",
-        "x": 608,
-        "y": 406,
-        "w": 200,
-        "h": 200
-      },
-      "Dancing Cavern": {
-        "name": "Dancing Cavern",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Dock-Alfari Acolyte": {
-        "name": "Dock-Alfari Acolyte",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Dock-Alfari Adept": {
-        "name": "Dock-Alfari Adept",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Dock-Alfari Assassin": {
-        "name": "Dock-Alfari Assassin",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Dock-Alfari Ranger": {
-        "name": "Dock-Alfari Ranger",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Dragon-Spear Ballista": {
-        "name": "Dragon-Spear Ballista",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Eldritch-Knight": {
-        "name": "Eldritch-Knight",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Hidden Paths": {
-        "name": "Hidden Paths",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Marks-Mage": {
-        "name": "Marks-Mage",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Masquerade Ball": {
-        "name": "Masquerade Ball",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Spell-Sniper": {
-        "name": "Spell-Sniper",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Stone Circle": {
-        "name": "Stone Circle",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Sylvan Blessing": {
-        "name": "Sylvan Blessing",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Trial by Combat": {
-        "name": "Trial by Combat",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Unseelie Sidhe": {
-        "name": "Unseelie Sidhe",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "War-Dancer": {
-        "name": "War-Dancer",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Warlock": {
-        "name": "Warlock",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      },
-      "Witch-Knight": {
-        "name": "Witch-Knight",
-        "x": 0,
-        "y": 0,
-        "w": 0,
-        "h": 0
-      }
-    }
+    "sprites": [
+      "Ceilidh Hall",
+      "Dancing Cavern",
+      "Dock-Alfari Acolyte",
+      "Dock-Alfari Adept",
+      "Dock-Alfari Assassin",
+      "Dock-Alfari Ranger",
+      "Dragon-Spear Ballista",
+      "Eldritch-Knight",
+      "Hidden Paths",
+      "Marks-Mage",
+      "Masquerade Ball",
+      "Spell-Sniper",
+      "Stone Circle",
+      "Sylvan Blessing",
+      "Trial by Combat",
+      "Unseelie Sidhe",
+      "War-Dancer",
+      "Warlock",
+      "Witch-Knight"
+    ]
   }
 ]
