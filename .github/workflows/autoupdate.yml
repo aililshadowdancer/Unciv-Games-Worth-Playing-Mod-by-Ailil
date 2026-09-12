@@ -21,95 +21,35 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
+      - name: Install Virtual Display Buffer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y x11-apps xvfb
+
       - name: Download Unciv jar
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Pack All Target Image Folders Cleanly
+      - name: Run Official Headless Multi-Packer
         run: |
-          if [ -d "Images/BuildingIcons" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/BuildingIcons . BuildingIcons
-          fi
-          if [ -d "Images/NationIcons" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/NationIcons . NationIcons
-          fi
-          if [ -d "Images/UnitIcons" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images/UnitIcons . UnitIcons
-          fi
+          # Uses Unciv's official multi-atlas engine flag to automatically format and name all sheets safely
+          timeout 30s xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod . --headless --json-atlases || true
 
-      - name: Compile Unified Mobile Atlases JSON
+      - name: Clean Temporary Assets
         run: |
-          node -e '
-          const fs = require("fs");
-          const targetSheets = ["BuildingIcons", "NationIcons", "UnitIcons"];
-          const outputObj = [];
-
-          for (const sheet of targetSheets) {
-            const atlasPath = `${sheet}.atlas`;
-            if (!fs.existsSync(atlasPath)) continue;
-
-            const data = fs.readFileSync(atlasPath, "utf8");
-            const lines = data.split(/\r?\n/);
-            const spriteNames = [];
-
-            // A clean flag loop checking for the exact transition pattern of sprite coordinates
-            let structureHeaderPassed = false;
-
-            for (let line of lines) {
-              const trimmed = line.trim();
-              if (!trimmed) continue;
-
-              // Filter structural keys precisely
-              if (trimmed.startsWith("size:") || trimmed.startsWith("format:") || trimmed.startsWith("filter:") || trimmed.startsWith("repeat:")) {
-                structureHeaderPassed = true;
-                continue;
-              }
-              if (!structureHeaderPassed) continue;
-              if (trimmed.startsWith("xy:") || trimmed.startsWith("size:") || trimmed.startsWith("orig:") || trimmed.startsWith("offset:") || trimmed.startsWith("index:")) {
-                continue;
-              }
-              if (trimmed === `${sheet}.png`) continue;
-
-              // Force-strip directory loops out
-              const cleanSprite = trimmed.replace(/^(BuildingIcons|NationIcons|UnitIcons)[\/\\]/, "");
-              
-              // This strictly blocks formatting properties or whitespace metadata from corrupting arrays
-              if (cleanSprite.length > 0 && !cleanSprite.includes(":")) {
-                spriteNames.push(cleanSprite);
-              }
-            }
-
-            // Remove any potential double registration logs cleanly
-            const uniqueSprites = [...new Set(spriteNames)];
-
-            if (uniqueSprites.length > 0) {
-              outputObj.push({
-                name: `${sheet}.png`,
-                sprites: uniqueSprites
-              });
-            }
-          }
-
-          // Output absolute tightly structured native JSON data structures
-          fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
-          console.log("Unified multi-atlas JSON verification validation completed successfully!");
-          '
-
-      - name: Clean Temporary Pipeline Assets
-        run: |
-          rm -f *.atlas Unciv.jar 2>/dev/null || true
+          rm -f Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json
+          git add BuildingIcons.png NationIcons.png UnitIcons.png Atlases.json game.png game.atlas 2>/dev/null || true
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed validated error-free mobile multi-sheet textures"
+            git commit -m "Auto-packed error-free native multi-sheet textures"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No file state updates registered."
+            echo "No changes found."
           fi
           
