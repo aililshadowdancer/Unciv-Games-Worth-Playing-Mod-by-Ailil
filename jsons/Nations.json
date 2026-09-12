@@ -42,8 +42,9 @@
       "Dancing Cavern"
     ],
     "uniques": [
-      "[+1 Faith] from adjacent [Unimproved] [Forest] tiles",
-      "[+1 Faith] from adjacent [Unimproved] [Forest] tiles <with adjacent [Unimproved] [Forest] tiles>"
+  "[+1 Faith] from adjacent [Forest] tiles",
+  "[+1 Faith] from adjacent [Forest] tiles <with adjacent [Forest] tiles>"
+    ]
     ],
     "cities": [
       "Shadow-Throne", "Moon-Fall", "Sword-Shrine", "Hidden-Holdfast", "Dancing-Glade", "Ebony-Oaks", "Mid-Winter", "Shrouded-Vale", "Eclipse",
