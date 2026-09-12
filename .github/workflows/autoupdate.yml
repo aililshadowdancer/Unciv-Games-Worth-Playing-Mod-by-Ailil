@@ -36,27 +36,17 @@ jobs:
         run: |
           timeout 15s xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod . --headless || true
 
-      - name: Locate and Move Texture Assets
+      - name: Rename Atlas for Mobile Compatibility
         run: |
-          echo "=== Relocating Hidden Textures ==="
-          find . -name "game.png" -exec cp {} . \; 2>/dev/null || true
-          find . -name "game.atlas" -exec cp {} ./game.atlas \; 2>/dev/null || true
-          find . -name "Atlases.json" -exec cp {} ./Atlases.json \; 2>/dev/null || true
-          
           if [ -f "game.atlas" ]; then
             mv game.atlas Atlases.json
-            echo "Successfully pulled and converted texture data files!"
+            echo "Successfully found and prepared text map configs."
           fi
 
-      - name: Force Commit and Push Assets
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add game.png Atlases.json 2>/dev/null || true
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed images into game.png and Atlases.json"
-            git push origin HEAD:${{ github.ref_name }}
-          else
-            echo "Error: Unciv engine processed rules but generated 0 graphics assets. Double check your Images folder content."
-          fi
+      - name: Force Save Changes into Blank Placeholders
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'game.png Atlases.json'
+          default_author: github_actions
+          message: 'Auto-packed mobile mod textures and populated placeholders'
           
