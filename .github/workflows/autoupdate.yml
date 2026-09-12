@@ -27,11 +27,6 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Extract Texture Packer Tools
-        run: |
-          mkdir -p packer_libs
-          unzip Unciv.jar -d packer_libs/
-
       - name: Run Core Gdx Texture Packer
         run: |
           if [ -d "Images" ]; then
@@ -42,11 +37,25 @@ jobs:
             exit 1
           fi
 
-      - name: Convert Output for Mobile
+      - name: Formulate Valid Atlases JSON
         run: |
           if [ -f "game.atlas" ]; then
-            mv game.atlas Atlases.json
-            echo "Data file successfully renamed to Atlases.json!"
+            echo "[" > Atlases.json
+            echo "  {" >> Atlases.json
+            echo "    \"name\": \"game.png\"," >> Atlases.json
+            echo "    \"sprites\": [" >> Atlases.json
+            
+            # Convert raw text entries into valid JSON strings
+            grep -E '^[a-zA-Z0-9_\-]+$' game.atlas | sed 's/.*/      "\0",/' >> Atlases.json
+            
+            # Clean up the trailing comma from the last element
+            sed -i '$ s/,$//' Atlases.json
+            
+            echo "    ]" >> Atlases.json
+            echo "  }" >> Atlases.json
+            echo "]" >> Atlases.json
+            rm game.atlas
+            echo "Successfully formulated valid JSON mapping schema!"
           fi
 
       - name: Force Save Changes into Blank Placeholders
@@ -54,5 +63,5 @@ jobs:
         with:
           add: 'game.png Atlases.json'
           default_author: github_actions
-          message: 'Core compiled textures successfully generated'
+          message: 'Generated true JSON texture mappings'
           
