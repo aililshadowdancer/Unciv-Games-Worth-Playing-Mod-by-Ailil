@@ -10,8 +10,8 @@
     "range": 1,
     "cost": 350,
     "requiredTech": "Ballistics",
-    "obsoleteTech": "Mobile Tactical",
-    "upgradesTo": "Bazooka",
+    "obsoleteTech": "Mobile Tactics",
+    "upgradesTo": "Rocket Artillery",
     "uniques": ["May not melee attack"],
     "attackSound": "phasers"
   },
@@ -53,9 +53,9 @@
     "obsoleteTech": "Civil Service",
     "upgradesTo": "Pikeman",
     "uniques": [
-      "Earns [100]% of killed unit's [Strength] as [Faith]",
-      "[+20]% Combat Strength when attacking <outside Friendly Territory>",
-      "Ignores terrain cost"
+  "Earns% of killed unit's [Strength] as [Faith]",
+  "[+20]% Combat Strength when attacking <outside Friendly Territory>",
+  "Ignores terrain cost"
     ]
   },
   {
@@ -125,8 +125,8 @@
     "obsoleteTech": "Physics",
     "upgradesTo": "Trebuchet",
     "uniques": [
-      "Must set up to attack",
-      "[+200]% Combat Strength vs [City] <when attacking>"
+  "Must set up to attack",
+  "[+200]% Combat Strength vs [City] <when attacking>"
     ]
   },
   {
