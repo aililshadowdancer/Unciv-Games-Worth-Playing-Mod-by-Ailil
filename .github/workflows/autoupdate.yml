@@ -15,111 +15,46 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Java
+        uses: actions/setup-java@v5
         with:
-          node-version: '20'
+          distribution: 'zulu'
+          java-version: '17'
 
-      - name: Install Pure Image Utilities
+      - name: Download Unciv jar
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          npm install sharp
+          gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Compile True Mod Textures
+      - name: Run Official LibGDX Packer
         run: |
-          node -e '
-          const fs = require("fs");
-          const path = require("path");
-          const sharp = require("sharp");
+          if [ -d "Images" ]; then
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
+            echo "Texture Packing process finished flawlessly!"
+          else
+            echo "Error: Images folder was not found."
+            exit 1
+          fi
 
-          const imgDir = "./Images";
-          if (!fs.existsSync(imgDir)) {
-            console.log("Images folder not found.");
-            process.exit(1);
-          }
+      - name: Write Official Atlases Rule File
+        run: |
+          # Writes the clean, native array template format that Unciv checks for validation
+          echo '["game"]' > Atlases.json
 
-          const files = fs.readdirSync(imgDir).filter(f => f.toLowerCase().endsWith(".png")).sort();
-          if (files.length === 0) {
-            console.log("No images found to pack.");
-            process.exit(0);
-          }
-
-          async function packImages() {
-            const compositeArray = [];
-            const spriteMap = {};
-            
-            // Standard crisp icon dimension limits
-            const size = 128; 
-            const columns = 8;
-            const rows = Math.ceil(files.length / columns);
-            
-            const canvasWidth = columns * size;
-            const canvasHeight = rows * size;
-
-            for (let i = 0; i < files.length; i++) {
-              const file = files[i];
-              const name = path.parse(file).name;
-              const imgPath = path.join(imgDir, file);
-              
-              const col = i % columns;
-              const row = Math.floor(i / columns);
-              const x = col * size;
-              const y = row * size;
-
-              const resizedBuffer = await sharp(imgPath).resize(size, size).toBuffer();
-              
-              compositeArray.push({
-                input: resizedBuffer,
-                left: x,
-                top: y
-              });
-
-              // Construct the exact internal layout format Unciv demands
-              spriteMap[name] = {
-                "x": x,
-                "y": y,
-                "width": size,
-                "height": size
-              };
-            }
-
-            // Stitches all pictures onto one grid sheet layout asset
-            await sharp({
-              create: {
-                width: canvasWidth,
-                height: canvasHeight,
-                channels: 4,
-                background: { r: 0, g: 0, b: 0, alpha: 0 }
-              }
-            })
-            .composite(compositeArray)
-            .png()
-            .toFile("game.png");
-
-            // Build the exact structural layout dictionary Unciv checks for validation
-            const outputObj = [{
-              "name": "game.png",
-              "sprites": spriteMap
-            }];
-
-            fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
-            console.log("True coordinate map data saved flawlessly!");
-          }
-
-          packImages().catch(err => {
-            console.error(err);
-            process.exit(1);
-          });
-          '
+      - name: Clean Pipeline Assets
+        run: |
+          rm -f Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add game.png Atlases.json
+          git add game.png game.atlas Atlases.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed error-free structural layout textures via sharp"
+            git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No file changes found to upload."
+            echo "No changes found to upload."
           fi
           
