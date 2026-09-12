@@ -23,8 +23,7 @@
     "maintenance": 1,
     "requiredTech": "Construction"
   },
-  {
-    "name": "Sylvan Blessing",
+    {
     "name": "Sylvan Blessing",
     "icon": "Sylvan Blessing",
     "replaces": "Aqueduct",
@@ -43,8 +42,8 @@
     "cost": 75,
     "requiredTech": "Masonry",
     "uniques": [
-      "[+5] Strength",
-      "[+50] HP"
+      "[+5] City Defense",
+      "[+50] City Max Hit Points"
     ]
   },
   {
