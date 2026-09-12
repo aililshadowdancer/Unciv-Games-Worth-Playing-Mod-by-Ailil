@@ -1,6 +1,7 @@
 [
   {
     "name": "Masquerade Ball",
+    "icon": "Masquerade Ball",
     "replaces": "Circus Maximus",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 480,
@@ -9,21 +10,33 @@
     "science": 12,
     "maintenance": 96,
     "isNationalWonder": true,
-    "requiredBuilding": "Colosseum",
+    "requiredBuilding": "Dancing Cavern",
     "requiredTech": "Horseback Riding"
   },
   {
+    "name": "Dancing Cavern",
+    "icon": "Dancing Cavern",
+    "replaces": "Colosseum",
+    "uniqueTo": "Unseelie Sidhe",
+    "cost": 100,
+    "happiness": 2,
+    "maintenance": 1,
+    "requiredTech": "Construction"
+  },
+  {
     "name": "Sylvan Blessing",
+    "icon": "Sylvan Blessing",
     "replaces": "Aqueduct",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 80,
     "hurryCostModifier": 160,
     "happiness": 2,
-    "uniques": ["[+40]% [Food] carries over after citizen growth"],
+    "uniques": ["[+40]% [Food] carries over after citizen growth Rhine"],
     "requiredTech": "Engineering"
   },
   {
     "name": "Hidden Paths",
+    "icon": "Hidden Paths",
     "replaces": "Walls",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 75,
@@ -35,6 +48,7 @@
   },
   {
     "name": "Ceilidh Hall",
+    "icon": "Ceilidh Hall",
     "replaces": "Opera House",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 200,
@@ -46,6 +60,7 @@
   },
   {
     "name": "Stone Circle",
+    "icon": "Stone Circle",
     "replaces": "Shrine",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 40,
@@ -55,6 +70,7 @@
   },
   {
     "name": "Trial by Combat",
+    "icon": "Trial by Combat",
     "replaces": "Courthouse",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 100,
