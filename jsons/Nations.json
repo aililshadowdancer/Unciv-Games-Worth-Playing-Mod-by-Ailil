@@ -1,7 +1,7 @@
 [
   {
     "name": "Unseelie Sidhe",
-        "icon": "Unseelie Sidhe",
+    "icon": "Unseelie Sidhe",
     "leaderName": "Ailil Shadowdancer",
     "adjective": ["Unseelie"],
     "startBias": ["Forest"],
@@ -17,8 +17,8 @@
     "tradeRequest": "We grant you the honor of this trade offer.",
     "denounced": "The accusations of mortals are beneath us.",
     "declaringfriendship": "We shall swear an oath of friendship, for now.",
-    "outerColor":[0,0,0],
-    "innerColor":[192,192,192],
+    "outerColor": [0,0,0],
+    "innerColor": [192,192,192],
     "uniqueUnits": [
       "Warlock",
       "Witch-Knight",
@@ -34,17 +34,16 @@
     ],
     "uniqueBuildings": [
       "Masquerade Ball",
+      "Dancing Cavern",
       "Sylvan Blessing",
       "Hidden Paths",
       "Ceilidh Hall",
       "Stone Circle",
-      "Trial by Combat",
-      "Dancing Cavern"
+      "Trial by Combat"
     ],
     "uniques": [
-  "[+1 Faith] from adjacent [Forest] tiles",
-  "[+1 Faith] from adjacent [Forest] tiles <with adjacent [Forest] tiles>"
-    ]
+      "[+1 Faith] from adjacent [Forest] tiles",
+      "[+1 Faith] from adjacent [Forest] tiles <with adjacent [Forest] tiles>"
     ],
     "cities": [
       "Shadow-Throne", "Moon-Fall", "Sword-Shrine", "Hidden-Holdfast", "Dancing-Glade", "Ebony-Oaks", "Mid-Winter", "Shrouded-Vale", "Eclipse",
