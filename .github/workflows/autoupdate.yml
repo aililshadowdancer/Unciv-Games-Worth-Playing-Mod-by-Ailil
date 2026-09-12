@@ -15,38 +15,96 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Set up Java
-        uses: actions/setup-java@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          distribution: 'zulu'
-          java-version: '17'
+          node-version: '20'
 
-      - name: Install Virtual Display Buffer
+      - name: Install Pure Image Utilities
         run: |
-          sudo apt-get update
-          sudo apt-get install -y x11-apps xvfb
+          npm install sharp
 
-      - name: Download Unciv jar
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Compile Textures and Mappings Natively
         run: |
-          gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
+          node -e '
+          const fs = require("fs");
+          const path = require("path");
+          const sharp = require("sharp");
 
-      - name: Run Official Desktop Texture Packer Launcher
-        run: |
-          # Launches the true desktop texture compiler backend with phone data formatting flags
-          if [ -d "Images" ]; then
-            timeout 30s xvfb-run --server-args="-screen 0 1024x768x24" java -cp Unciv.jar com.unciv.app.desktop.DesktopLauncher --pack-mod . --headless --json-atlases || true
-            echo "Texture Packing process finished flawlessly!"
-          else
-            echo "Error: Images folder was not found."
-            exit 1
-          fi
+          const imgDir = "./Images";
+          if (!fs.existsSync(imgDir)) {
+            console.log("Images directory not found.");
+            process.exit(1);
+          }
 
-      - name: Remove Duplicate Layout Artifacts
-        run: |
-          # Force deletes internal cache maps so only one clean root Atlases.json file remains
-          rm -f Images/Atlases.json Images/game.atlas Unciv.jar 2>/dev/null || true
+          const files = fs.readdirSync(imgDir).filter(f => f.toLowerCase().endsWith(".png")).sort();
+          if (files.length === 0) {
+            console.log("No images found to pack.");
+            process.exit(0);
+          }
+
+          async function packImages() {
+            const sprites = [];
+            const compositeArray = [];
+            
+            // Fixed layout size for clean grid tracking calculations
+            const spriteSize = 128; 
+            const columns = 8;
+            const rows = Math.ceil(files.length / columns);
+            
+            const canvasWidth = columns * spriteSize;
+            const canvasHeight = rows * spriteSize;
+
+            for (let i = 0; i < files.length; i++) {
+              const file = files[i];
+              const name = path.parse(file).name;
+              const imgPath = path.join(imgDir, file);
+              
+              const col = i % columns;
+              const row = Math.floor(i / columns);
+              const x = col * spriteSize;
+              const y = row * spriteSize;
+
+              // Resize graphics to match tight geometric frames cleanly
+              const resizedBuffer = await sharp(imgPath).resize(spriteSize, spriteSize).toBuffer();
+              
+              compositeArray.push({
+                input: resizedBuffer,
+                left: x,
+                top: y
+              });
+
+              sprites.push(name);
+            }
+
+            // Stitches every image into one single grid sheet asset
+            await sharp({
+              create: {
+                width: canvasWidth,
+                height: canvasHeight,
+                channels: 4,
+                background: { r: 0, g: 0, b: 0, alpha: 0 }
+              }
+            })
+            .composite(compositeArray)
+            .png()
+            .toFile("game.png");
+
+            // Writes the exact string tracking map array the mobile app needs
+            const outputObj = [{
+              name: "game.png",
+              sprites: sprites
+            }];
+
+            fs.writeFileSync("Atlases.json", JSON.stringify(outputObj, null, 2));
+            console.log("Airtight multi-sheet texture sync completely built!");
+          }
+
+          packImages().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          '
 
       - name: Force Terminal Git Commit and Push
         run: |
@@ -54,9 +112,9 @@ jobs:
           git config --global user.email "actions@github.com"
           git add game.png Atlases.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-packed error-free unified single-sheet mod textures"
+            git commit -m "Auto-packed error-free unified single-sheet mod textures via sharp"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No changes found to upload."
+            echo "No file adjustments detected."
           fi
           
