@@ -11,20 +11,15 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           persist-credentials: true
 
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'zulu'
           java-version: '17'
-
-      - name: Install Virtual Display Buffer
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y x11-apps xvfb
 
       - name: Download Unciv jar
         env:
@@ -32,15 +27,26 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
-      - name: Run Headless Texture Packer
+      - name: Extract Texture Packer Tools
         run: |
-          timeout 15s xvfb-run --server-args="-screen 0 1024x768x24" java -jar Unciv.jar --pack-mod . --headless || true
+          mkdir -p packer_libs
+          unzip Unciv.jar -d packer_libs/
 
-      - name: Rename Atlas for Mobile Compatibility
+      - name: Run Core Gdx Texture Packer
+        run: |
+          if [ -d "Images" ]; then
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
+            echo "Texture Packing process finished flawlessly!"
+          else
+            echo "Error: Images folder was not found."
+            exit 1
+          fi
+
+      - name: Convert Output for Mobile
         run: |
           if [ -f "game.atlas" ]; then
             mv game.atlas Atlases.json
-            echo "Successfully found and prepared text map configs."
+            echo "Data file successfully renamed to Atlases.json!"
           fi
 
       - name: Force Save Changes into Blank Placeholders
@@ -48,5 +54,5 @@ jobs:
         with:
           add: 'game.png Atlases.json'
           default_author: github_actions
-          message: 'Auto-packed mobile mod textures and populated placeholders'
+          message: 'Core compiled textures successfully generated'
           
