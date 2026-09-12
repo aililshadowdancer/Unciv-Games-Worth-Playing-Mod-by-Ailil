@@ -31,7 +31,7 @@
     "cost": 80,
     "hurryCostModifier": 160,
     "happiness": 2,
-    "uniques": ["[+40]% [Food] carries over after citizen growth"],
+    "uniques": ["[40]% [Food] carries over after citizen growth"],
     "requiredTech": "Engineering"
   },
   {
@@ -42,8 +42,8 @@
     "cost": 75,
     "requiredTech": "Masonry",
     "uniques": [
-      "+5 City Defense",
-      "+50 City Max Hit Points"
+      "[+5] City Defense",
+      "[+50] City Max Hit Points"
     ]
   },
   {
@@ -77,8 +77,8 @@
     "maintenance": 4,
     "requiredTech": "Mathematics",
     "uniques": [
-      "Removes unhappiness from occupied cities",
-      "Can only be built in occupied cities"
+      "Removes extra unhappiness from annexed cities",
+      "Can only be built <in [Annexed] cities>"
     ]
   }
 ]
