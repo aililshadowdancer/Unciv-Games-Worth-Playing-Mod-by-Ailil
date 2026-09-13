@@ -1,7 +1,7 @@
 [
   {
     "name": "Masquerade Ball",
-    "icon": "Masquerade Ball",
+    "icon": "Masquerade-Ball",
     "replaces": "Circus Maximus",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 480,
@@ -15,7 +15,7 @@
   },
   {
     "name": "Dancing Cavern",
-    "icon": "Dancing Cavern",
+    "icon": "Dancing-Cavern",
     "replaces": "Colosseum",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 100,
@@ -25,7 +25,7 @@
   },
   {
     "name": "Sylvan Blessing",
-    "icon": "Sylvan Blessing",
+    "icon": "Sylvan-Blessing",
     "replaces": "Aqueduct",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 80,
@@ -36,7 +36,7 @@
   },
   {
     "name": "Hidden Paths",
-    "icon": "Hidden Paths",
+    "icon": "Hidden-Paths",
     "replaces": "Walls",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 75,
@@ -47,7 +47,7 @@
   },
   {
     "name": "Ceilidh Hall",
-    "icon": "Ceilidh Hall",
+    "icon": "Ceilidh-Hall",
     "replaces": "Opera House",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 200,
@@ -59,7 +59,7 @@
   },
   {
     "name": "Stone Circle",
-    "icon": "Stone Circle",
+    "icon": "Stone-Circle",
     "replaces": "Shrine",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 40,
@@ -69,7 +69,7 @@
   },
   {
     "name": "Trial by Combat",
-    "icon": "Trial by Combat",
+    "icon": "Trial-by-Combat",
     "replaces": "Courthouse",
     "uniqueTo": "Unseelie Sidhe",
     "cost": 100,
