@@ -85,7 +85,7 @@
     "replaces": "Scout",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Scout",
-    "icon": "Dock-Alfari Acolyte",
+    "icon": "Dock-Alfari-Acolyte",
     "movement": 2,
     "strength": 5,
     "cost": 25,
