@@ -4,6 +4,7 @@
     "unitType": "Archery",
     "uniqueTo": "Unseelie Sidhe",
     "replaces": "Machine Gun",
+    "icon": "Warlock",
     "movement": 2,
     "strength": 60,
     "rangedStrength": 60,
@@ -19,6 +20,7 @@
     "replaces": "Longswordsman",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Sword",
+    "icon": "Witch-Knight",
     "movement": 2,
     "strength": 21,
     "cost": 120,
@@ -33,6 +35,7 @@
     "replaces": "Swordsman",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Sword",
+    "icon": "Eldritch-Knight",
     "movement": 2,
     "strength": 14,
     "cost": 75,
@@ -47,6 +50,7 @@
     "replaces": "Pictish Warrior",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Melee",
+    "icon": "War-Dancer",
     "movement": 2,
     "strength": 13,
     "cost": 60,
@@ -54,7 +58,7 @@
     "obsoleteTech": "Civil Service",
     "upgradesTo": "Pikeman",
     "uniques": [
-      "Earn [50]% of killed [Military] unit's [Strength] as [Faith]",
+      "Earn% of killed [Military] unit's [Strength] as [Faith]",
       "[+20]% Strength <when fighting in [Enemy Land] tiles>",
       "[+20]% Strength <when fighting in [Neutral Land] tiles>",
       "Ignores terrain cost"
@@ -66,6 +70,7 @@
     "replaces": "Archer",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Archery",
+    "icon": "Dock-Alfari Adept",
     "movement": 2,
     "strength": 5,
     "rangedStrength": 7,
@@ -81,6 +86,7 @@
     "replaces": "Scout",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Scout",
+    "icon": "Dock-Alfari Acolyte",
     "movement": 2,
     "strength": 5,
     "cost": 25,
@@ -92,6 +98,7 @@
     "replaces": "Crossbowman",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Archery",
+    "icon": "Dock-Alfari Assassin",
     "movement": 2,
     "strength": 13,
     "rangedStrength": 18,
@@ -108,6 +115,7 @@
     "replaces": "Composite Bowman",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Archery",
+    "icon": "Dock-Alfari Ranger",
     "movement": 2,
     "strength": 7,
     "rangedStrength": 11,
@@ -123,6 +131,7 @@
     "replaces": "Ballista",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Siege",
+    "icon": "Dragon-Spear Ballista",
     "movement": 2,
     "strength": 8,
     "rangedStrength": 10,
@@ -142,6 +151,7 @@
     "replaces": "Rifleman",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Gunpowder",
+    "icon": "Marks-Mage",
     "movement": 2,
     "strength": 34,
     "cost": 225,
@@ -154,6 +164,7 @@
     "replaces": "Musketman",
     "uniqueTo": "Unseelie Sidhe",
     "unitType": "Gunpowder",
+    "icon": "Spell-Sniper",
     "movement": 2,
     "strength": 24,
     "cost": 150,
@@ -161,5 +172,11 @@
     "obsoleteTech": "Rifling",
     "upgradesTo": "Marks-Mage",
     "attackSound": "gunfire"
+  },
+  {
+    "name": "Warrior",
+    "uniques": [
+      "May upgrade to [War-Dancer] through ruins-like effects <for [Unseelie Sidhe] players>"
+    ]
   }
 ]
