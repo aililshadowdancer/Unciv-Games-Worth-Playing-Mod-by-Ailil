@@ -1,139 +1,151 @@
 
 game.png
-size: 2048, 512
+size: 1024, 512
 format: RGBA8888
-filter: Linear, Linear
+filter: Nearest, Nearest
 repeat: none
-Ceilidh-Hall
+BuildingIcons/Ceilidh-Hall
   rotate: false
-  xy: 4, 212
+  xy: 2, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Dancing-Cavern
+BuildingIcons/Dancing-Cavern
   rotate: false
-  xy: 4, 4
+  xy: 2, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Hidden-Paths
+BuildingIcons/Hidden-Paths
   rotate: false
-  xy: 836, 212
+  xy: 204, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Masquerade-Ball
+BuildingIcons/Masquerade-Ball
   rotate: false
-  xy: 1044, 212
+  xy: 204, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Stone-Circle
+BuildingIcons/Stone-Circle
   rotate: false
-  xy: 1252, 212
+  xy: 406, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Sylvan-Blessing
+BuildingIcons/Sylvan-Blessing
   rotate: false
-  xy: 1252, 4
+  xy: 406, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Trial-by-Combat
+BuildingIcons/Trial-by-Combat
   rotate: false
-  xy: 1460, 212
+  xy: 608, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-NationIcons-Unseelie-Sidhe
+
+game2.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+UnitIcons/Dock-Alfari-Acolyte
   rotate: false
-  xy: 1876, 312
+  xy: 2, 810
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Adept
+  rotate: false
+  xy: 2, 608
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Assassin
+  rotate: false
+  xy: 204, 810
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Ranger
+  rotate: false
+  xy: 2, 406
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dragon-Spear-Ballista
+  rotate: false
+  xy: 204, 608
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Eldritch-Knight
+  rotate: false
+  xy: 406, 810
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Marks-Mage
+  rotate: false
+  xy: 2, 204
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Spell-Sniper
+  rotate: false
+  xy: 204, 406
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/War-Dancer
+  rotate: false
+  xy: 406, 608
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Warlock
+  rotate: false
+  xy: 608, 810
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Witch-Knight
+  rotate: false
+  xy: 2, 2
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+
+game3.png
+size: 128, 128
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+NationIcons/NationIcons-Unseelie-Sidhe
+  rotate: false
+  xy: 2, 2
   size: 100, 100
   orig: 100, 100
-  offset: 0, 0
-  index: -1
-Dock-Alfari-Acolyte
-  rotate: false
-  xy: 212, 212
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Dock-Alfari-Adept
-  rotate: false
-  xy: 212, 4
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Dock-Alfari-Assassin
-  rotate: false
-  xy: 420, 212
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Dock-Alfari-Ranger
-  rotate: false
-  xy: 420, 4
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Dragon-Spear-Ballista
-  rotate: false
-  xy: 628, 212
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Eldritch-Knight
-  rotate: false
-  xy: 628, 4
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Marks-Mage
-  rotate: false
-  xy: 836, 4
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Spell-Sniper
-  rotate: false
-  xy: 1044, 4
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-War-Dancer
-  rotate: false
-  xy: 1460, 4
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Warlock
-  rotate: false
-  xy: 1668, 212
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-Witch-Knight
-  rotate: false
-  xy: 1668, 4
-  size: 200, 200
-  orig: 200, 200
   offset: 0, 0
   index: -1
