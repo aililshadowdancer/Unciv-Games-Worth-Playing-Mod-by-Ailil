@@ -29,13 +29,13 @@ jobs:
 
       - name: Clean Pipeline Workspace and Cache
         run: |
-          # Explicitly destroys any lingering or cached image sheets and rules before compiling
-          rm -f Icons.png Icons.atlas Atlases.json game.png game.atlas 2>/dev/null || true
+          rm -f Icons*.* Atlases.json game.png game.atlas 2>/dev/null || true
 
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . Icons
+            # We explicitly pass '2048' to make sure everything fits cleanly on one sheet
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . Icons '{"maxWidth":2048,"maxHeight":2048}'
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
@@ -58,7 +58,9 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add Icons.png Icons.atlas Atlases.json
+          # Using a wildcard (*) ensures Git tracks the files properly
+          git add Icons* Atlases.json
+          git rm -f game.png game.atlas 2>/dev/null || true
           if ! git diff-index --quiet HEAD; then
             git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
