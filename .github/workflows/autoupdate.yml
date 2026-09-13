@@ -29,12 +29,13 @@ jobs:
 
       - name: Clean Pipeline Workspace and Cache
         run: |
+          # Purges any leftover fragments or numbered sheets from previous failed runs
           rm -f Icons*.* Atlases.json game.png game.atlas 2>/dev/null || true
 
       - name: Write Texture Packer Custom Rules
         run: |
-          # Creates a perfect settings configuration file directly inside the target images directory.
-          # This forces a large 2048x2048 grid size without breaking folder path names.
+          # Creates the required configuration directly inside your source folder
+          # This forces a large canvas layout without flattening your subdirectory paths
           echo '{
             "maxWidth": 2048,
             "maxHeight": 2048,
@@ -62,14 +63,15 @@ jobs:
 
       - name: Clean Pipeline Assets
         run: |
+          # Removes the temporary file so it does not permanently clutter your images folder
           rm -f Unciv.jar Images/pack.json 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add Icons* Atlases.json
-          git rm -f game.png game.atlas 2>/dev/null || true
+          git add Icons.png Icons.atlas Atlases.json
+          git rm -f game.png game.atlas Icons1.png Icons2.png Icons3.png 2>/dev/null || true
           if ! git diff-index --quiet HEAD; then
             git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
