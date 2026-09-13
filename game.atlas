@@ -39,7 +39,7 @@ Dock-Alfari Ranger
   orig: 200, 200
   offset: 0, 0
   index: -1
-Dock-Alfari-Acolyte
+UnitIcons/Dock-Alfari-Acolyte
   rotate: false
   xy: 420, 4
   size: 200, 200
@@ -53,7 +53,7 @@ Dragon-Spear Ballista
   orig: 200, 200
   offset: 0, 0
   index: -1
-Eldritch-Knight
+UnitIcons/Eldritch-Knight
   rotate: false
   xy: 628, 4
   size: 200, 200
@@ -67,7 +67,7 @@ Hidden Paths
   orig: 200, 200
   offset: 0, 0
   index: -1
-Marks-Mage
+UnitIcons/Marks-Mage
   rotate: false
   xy: 836, 4
   size: 200, 200
@@ -88,7 +88,7 @@ NationIcons-Unseelie Sidhe
   orig: 100, 100
   offset: 0, 0
   index: -1
-Spell-Sniper
+UnitIcons/Spell-Sniper
   rotate: false
   xy: 1044, 4
   size: 200, 200
@@ -116,21 +116,21 @@ Trial by Combat
   orig: 200, 200
   offset: 0, 0
   index: -1
-War-Dancer
+UnitIcons/War-Dancer
   rotate: false
   xy: 1460, 4
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Warlock
+UnitIcons/Warlock
   rotate: false
   xy: 1668, 212
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Witch-Knight
+UnitIcons/Witch-Knight
   rotate: false
   xy: 1668, 4
   size: 200, 200
