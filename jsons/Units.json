@@ -57,9 +57,9 @@
     "requiredTech": "Bronze Working",
     "obsoleteTech": "Civil Service",
     "upgradesTo": "Pikeman",
-    "uniques": [
-      "Earn [50]% of killed [Military] unit's [Strength] as [Faith]",
-      "[+20]% Combat Strength <when attacking> <when fighting outside friendly territory>",
+        "uniques": [
+      "Earn% of killed [Military] unit's [Strength] as [Faith]",
+      "[+20]% [Strength] <when attacking> <when fighting in [Foreign Land] tiles>",
       "Ignores terrain cost"
     ],
     "attackSound": "metalhit"
