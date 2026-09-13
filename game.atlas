@@ -116,6 +116,13 @@ NationIcons-Unseelie Sidhe
   orig: 100, 100
   offset: 0, 0
   index: -1
+NationIcons/Unseelie-Sidhe
+  rotate: false
+  xy: 1668, 628
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 UnitIcons/Spell-Sniper
   rotate: false
   xy: 836, 320
