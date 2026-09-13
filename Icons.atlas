@@ -1,137 +1,137 @@
 
 Icons.png
-size: 1024, 512
+size: 2048, 256
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
 BuildingIcons/Ceilidh-Hall
   rotate: false
-  xy: 2, 204
+  xy: 2, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 BuildingIcons/Dancing-Cavern
   rotate: false
-  xy: 2, 2
+  xy: 204, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 BuildingIcons/Hidden-Paths
   rotate: false
-  xy: 204, 204
+  xy: 406, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 BuildingIcons/Masquerade-Ball
   rotate: false
-  xy: 204, 2
+  xy: 608, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 BuildingIcons/Stone-Circle
   rotate: false
-  xy: 406, 204
+  xy: 810, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 BuildingIcons/Sylvan-Blessing
   rotate: false
-  xy: 406, 2
+  xy: 1012, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 BuildingIcons/Trial-by-Combat
   rotate: false
-  xy: 608, 204
+  xy: 1214, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 
 Icons2.png
-size: 1024, 1024
+size: 2048, 512
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
 UnitIcons/Dock-Alfari-Acolyte
-  rotate: false
-  xy: 2, 810
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Dock-Alfari-Adept
-  rotate: false
-  xy: 2, 608
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Dock-Alfari-Assassin
-  rotate: false
-  xy: 204, 810
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Dock-Alfari-Ranger
-  rotate: false
-  xy: 2, 406
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Dragon-Spear-Ballista
-  rotate: false
-  xy: 204, 608
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Eldritch-Knight
-  rotate: false
-  xy: 406, 810
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Marks-Mage
   rotate: false
   xy: 2, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
+UnitIcons/Dock-Alfari-Adept
+  rotate: false
+  xy: 2, 2
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Assassin
+  rotate: false
+  xy: 204, 204
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Ranger
+  rotate: false
+  xy: 204, 2
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dragon-Spear-Ballista
+  rotate: false
+  xy: 406, 204
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Eldritch-Knight
+  rotate: false
+  xy: 406, 2
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Marks-Mage
+  rotate: false
+  xy: 608, 204
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
 UnitIcons/Spell-Sniper
   rotate: false
-  xy: 204, 406
+  xy: 608, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/War-Dancer
   rotate: false
-  xy: 406, 608
+  xy: 810, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Warlock
   rotate: false
-  xy: 608, 810
+  xy: 810, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Witch-Knight
   rotate: false
-  xy: 2, 2
+  xy: 1012, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
