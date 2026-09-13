@@ -1,7 +1,7 @@
 [
   {
     "name": "Unseelie Sidhe",
-    "icon": "Unseelie Sidhe",
+    "icon": "NationIcons-Unseelie Sidhe",
     "leaderName": "Ailil Shadowdancer",
     "adjective": ["Unseelie"],
     "startBias": ["Forest"],
@@ -21,8 +21,8 @@
     "innerColor": [192,192,192],
     "favoredReligion": "Taoism",
     "uniques": [
-      "[+1 Faith] [in all cities] <with [1] to [2] neighboring [{unimproved} {Forest}] tiles>",
-      "[+2 Faith] [in all cities] <with [3] to [6] neighboring [{unimproved} {Forest}] tiles>"
+      "[+1 Faith] [in all cities] <with to neighboring [{unimproved} {Forest}] tiles>",
+      "[+2 Faith] [in all cities] <with to neighboring [{unimproved} {Forest}] tiles>"
     ],
     "uniqueToThisNation": [
       "Warlock",
