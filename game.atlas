@@ -6,133 +6,126 @@ filter: Nearest, Nearest
 repeat: none
 Ceilidh Hall
   rotate: false
-  xy: 2, 306
+  xy: 2, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dancing Cavern
   rotate: false
-  xy: 2, 104
+  xy: 2, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Acolyte
   rotate: false
-  xy: 204, 306
+  xy: 204, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Adept
   rotate: false
-  xy: 204, 104
+  xy: 204, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Assassin
   rotate: false
-  xy: 406, 306
+  xy: 406, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Ranger
   rotate: false
-  xy: 406, 104
+  xy: 406, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dragon-Spear Ballista
   rotate: false
-  xy: 608, 306
+  xy: 608, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Eldritch-Knight
   rotate: false
-  xy: 608, 104
+  xy: 608, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Hidden Paths
   rotate: false
-  xy: 810, 306
+  xy: 810, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Marks-Mage
   rotate: false
-  xy: 810, 104
+  xy: 810, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Masquerade Ball
   rotate: false
-  xy: 1012, 306
+  xy: 1012, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Spell-Sniper
   rotate: false
-  xy: 1012, 104
+  xy: 1012, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Stone Circle
   rotate: false
-  xy: 1214, 306
+  xy: 1214, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Sylvan Blessing
   rotate: false
-  xy: 1214, 104
+  xy: 1214, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Trial by Combat
   rotate: false
-  xy: 1416, 306
+  xy: 1416, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Unseelie Sidhe
-  rotate: false
-  xy: 2, 2
-  size: 100, 100
-  orig: 100, 100
-  offset: 0, 0
-  index: -1
 War-Dancer
   rotate: false
-  xy: 1416, 104
+  xy: 1416, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Warlock
   rotate: false
-  xy: 1618, 306
+  xy: 1618, 204
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Witch-Knight
   rotate: false
-  xy: 1618, 104
+  xy: 1618, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
