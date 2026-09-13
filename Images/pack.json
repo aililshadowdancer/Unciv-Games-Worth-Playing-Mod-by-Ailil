@@ -1,13 +1,17 @@
 {
   "fast": true,
-  "stripWhitespaceX": false,
-  "stripWhitespaceY": false,
   "combineSubdirectories": true,
   "flattenPaths": false,
   "premultiplyAlpha": false,
   "useIndexes": false,
   "maxWidth": 2048,
   "maxHeight": 2048,
+  "paddingX": 8,
+  "paddingY": 8,
+  "duplicatePadding": true,
+  "stripWhitespaceX": false,
+  "stripWhitespaceY": false,
+  "alias": false,
   "filterMin": "Linear",
   "filterMag": "Linear"
 }
