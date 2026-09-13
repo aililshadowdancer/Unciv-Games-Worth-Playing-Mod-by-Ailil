@@ -1,5 +1,5 @@
 
-Icons.png
+game.png
 size: 2048, 256
 format: RGBA8888
 filter: Nearest, Nearest
@@ -54,7 +54,7 @@ BuildingIcons/Trial-by-Combat
   offset: 0, 0
   index: -1
 
-Icons2.png
+game2.png
 size: 2048, 512
 format: RGBA8888
 filter: Nearest, Nearest
@@ -137,7 +137,7 @@ UnitIcons/Witch-Knight
   offset: 0, 0
   index: -1
 
-Icons3.png
+game3.png
 size: 128, 128
 format: RGBA8888
 filter: Nearest, Nearest
