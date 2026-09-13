@@ -30,10 +30,24 @@ jobs:
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            # Writes the absolute, exact settings block used by the native Unciv desktop engine
-            echo '{"fast":true,"stripWhitespaceX":false,"stripWhitespaceY":false,"combineSubdirectories":true,"flattenPaths":false,"premultiplyAlpha":false,"useIndexes":false,"maxWidth":2048,"maxHeight":2048,"filterMin":"Linear","filterMag":"Linear"}' > pack.json
+            # Injecting the strict explicit Java parameters config matching Unciv core requirements
+            cat << 'EOF' > pack.json
+            {
+              "fast": true,
+              "stripWhitespaceX": false,
+              "stripWhitespaceY": false,
+              "combineSubdirectories": true,
+              "flattenPaths": false,
+              "premultiplyAlpha": false,
+              "useIndexes": false,
+              "maxWidth": 2048,
+              "maxHeight": 2048,
+              "filterMin": "Linear",
+              "filterMag": "Linear"
+            }
+            EOF
             
-            # Safe command line compiling sequence mapping directly back into your root assets
+            # Executing the background file compiler while passing the clean parameters sheet
             java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game pack.json
             echo "Texture Packing process finished flawlessly!"
           else
