@@ -58,9 +58,8 @@
     "obsoleteTech": "Civil Service",
     "upgradesTo": "Pikeman",
     "uniques": [
-      "[-] [transient] [Look] [Pictish Warrior]",
-      "Earn% of killed [Military] unit's [Strength] as [Faith]",
-      "[+20]% [Strength] <when attacking> <outside Friendly Territory>",
+      "Earn [50]% of killed [Military] unit's [Strength] as [Faith]",
+      "[+20]% Combat Strength <when attacking> <when fighting outside friendly territory>",
       "Ignores terrain cost"
     ],
     "attackSound": "metalhit"
@@ -141,7 +140,6 @@
     "obsoleteTech": "Physics",
     "upgradesTo": "Trebuchet",
     "uniques": [
-      "[-] [transient] [Look] [Ballista]",
       "Must set up to attack",
       "[+300]% Strength <vs cities> <when attacking>"
     ],
