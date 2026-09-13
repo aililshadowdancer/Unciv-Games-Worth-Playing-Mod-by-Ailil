@@ -31,11 +31,21 @@ jobs:
         run: |
           rm -f Icons*.* Atlases.json game.png game.atlas 2>/dev/null || true
 
+      - name: Write Texture Packer Custom Rules
+        run: |
+          # Creates a perfect settings configuration file directly inside the target images directory.
+          # This forces a large 2048x2048 grid size without breaking folder path names.
+          echo '{
+            "maxWidth": 2048,
+            "maxHeight": 2048,
+            "combineSubdirectories": false,
+            "flattenPaths": false
+          }' > Images/pack.json
+
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            # We explicitly pass '2048' to make sure everything fits cleanly on one sheet
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . Icons '{"maxWidth":2048,"maxHeight":2048}'
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . Icons
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
@@ -52,13 +62,12 @@ jobs:
 
       - name: Clean Pipeline Assets
         run: |
-          rm -f Unciv.jar 2>/dev/null || true
+          rm -f Unciv.jar Images/pack.json 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          # Using a wildcard (*) ensures Git tracks the files properly
           git add Icons* Atlases.json
           git rm -f game.png game.atlas 2>/dev/null || true
           if ! git diff-index --quiet HEAD; then
