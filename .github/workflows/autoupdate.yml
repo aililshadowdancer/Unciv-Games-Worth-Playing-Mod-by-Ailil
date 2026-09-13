@@ -29,21 +29,18 @@ jobs:
 
       - name: Clean Pipeline Workspace and Cache
         run: |
+          # Purges any leftover or failed Multi-sheet iterations before compiling
           rm -f Icons*.* Atlases.json game.png game.atlas 2>/dev/null || true
 
       - name: Write Texture Packer Custom Rules
         run: |
-          echo '{
-            "maxWidth": 2048,
-            "maxHeight": 2048,
-            "combineSubdirectories": false,
-            "flattenPaths": false
-          }' > Images/pack.json
+          # Writes the strict single-line configuration file exactly inside the target Images folder
+          echo '{"maxWidth":2048,"maxHeight":2048,"combineSubdirectories":false,"flattenPaths":false}' > Images/pack.json
 
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . Icons
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
@@ -52,11 +49,11 @@ jobs:
 
       - name: Force Cache-Busting Image Link
         run: |
-          sed -i "1s/Icons.png/Icons.png?v=${{ github.sha }}/" Icons.atlas
+          sed -i "1s/game.png/game.png?v=${{ github.sha }}/" game.atlas
 
       - name: Write Official Atlases Rule File
         run: |
-          echo '["Icons"]' > Atlases.json
+          echo '["game"]' > Atlases.json
 
       - name: Clean Pipeline Assets
         run: |
@@ -66,13 +63,17 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add Icons.png Icons.atlas Atlases.json
-          git rm -f game.png game.atlas Icons1.png Icons2.png Icons3.png 2>/dev/null || true
+          
+          # Force Git to track only the proper game files
+          git add game.png game.atlas Atlases.json
+          
+          # Physically remove any old incorrect 'Icons' file iterations from the repository
+          git rm --ignore-unmatch -f Icons*.* Icons1.png Icons2.png Icons3.png 2>/dev/null || true
+          
           if ! git diff-index --quiet HEAD; then
             git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
           else
-            # This echo prevents Git from throwing a crash error when everything is already updated
-            echo "No changes found to upload. Workspace is already perfect!"
+            echo "Workspace is already perfectly updated."
           fi
           
