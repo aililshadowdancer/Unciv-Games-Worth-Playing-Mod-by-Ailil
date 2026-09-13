@@ -29,13 +29,10 @@ jobs:
 
       - name: Clean Pipeline Workspace and Cache
         run: |
-          # Purges any leftover fragments or numbered sheets from previous failed runs
           rm -f Icons*.* Atlases.json game.png game.atlas 2>/dev/null || true
 
       - name: Write Texture Packer Custom Rules
         run: |
-          # Creates the required configuration directly inside your source folder
-          # This forces a large canvas layout without flattening your subdirectory paths
           echo '{
             "maxWidth": 2048,
             "maxHeight": 2048,
@@ -63,7 +60,6 @@ jobs:
 
       - name: Clean Pipeline Assets
         run: |
-          # Removes the temporary file so it does not permanently clutter your images folder
           rm -f Unciv.jar Images/pack.json 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
@@ -76,6 +72,7 @@ jobs:
             git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
           else
-            echo "No changes found to upload."
+            # This echo prevents Git from throwing a crash error when everything is already updated
+            echo "No changes found to upload. Workspace is already perfect!"
           fi
           
