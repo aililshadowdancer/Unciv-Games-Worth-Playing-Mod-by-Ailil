@@ -27,6 +27,11 @@ jobs:
         run: |
           gh release download --repo yairm210/Unciv --pattern "Unciv.jar" --output Unciv.jar
 
+      - name: Clean Pipeline Workspace and Cache
+        run: |
+          # Explicitly destroys any lingering or cached image sheets and rules before compiling
+          rm -f Icons.png Icons.atlas Atlases.json game.png game.atlas 2>/dev/null || true
+
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
