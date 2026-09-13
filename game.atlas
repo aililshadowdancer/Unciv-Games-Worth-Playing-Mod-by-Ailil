@@ -4,16 +4,51 @@ size: 2048, 1024
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
-Ceilidh Hall
+BuildingIcons/Ceilidh-Hall
   rotate: false
   xy: 4, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-Dancing Cavern
+BuildingIcons/Dancing-Cavern
   rotate: false
   xy: 4, 528
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+BuildingIcons/Hidden-Paths
+  rotate: false
+  xy: 628, 320
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+BuildingIcons/Masquerade-Ball
+  rotate: false
+  xy: 836, 320
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+BuildingIcons/Stone-Circle
+  rotate: false
+  xy: 1044, 320
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+BuildingIcons/Sylvan-Blessing
+  rotate: false
+  xy: 1460, 736
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+BuildingIcons/Trial-by-Combat
+  rotate: false
+  xy: 1252, 320
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
@@ -69,14 +104,14 @@ Hidden Paths
   index: -1
 UnitIcons/Marks-Mage
   rotate: false
-  xy: 628, 320
+  xy: 836, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Masquerade Ball
   rotate: false
-  xy: 1044, 736
+  xy: 628, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
@@ -90,28 +125,28 @@ NationIcons-Unseelie Sidhe
   index: -1
 UnitIcons/Spell-Sniper
   rotate: false
-  xy: 628, 112
+  xy: 1044, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Stone Circle
   rotate: false
-  xy: 1044, 528
+  xy: 836, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Sylvan Blessing
   rotate: false
-  xy: 1252, 736
+  xy: 1252, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Trial by Combat
   rotate: false
-  xy: 836, 112
+  xy: 1044, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
@@ -160,56 +195,49 @@ UnitIcons/Eldritch-Knight
   index: -1
 UnitIcons/Marks-Mage
   rotate: false
-  xy: 836, 528
+  xy: 1044, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Spell-Sniper
   rotate: false
-  xy: 836, 320
+  xy: 1252, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/War-Dancer
   rotate: false
-  xy: 1252, 528
+  xy: 1668, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Warlock
   rotate: false
-  xy: 1044, 112
+  xy: 1460, 320
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Witch-Knight
+  rotate: false
+  xy: 1668, 528
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/War-Dancer
   rotate: false
   xy: 1460, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-UnitIcons/War-Dancer
-  rotate: false
-  xy: 1044, 320
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
 UnitIcons/Warlock
   rotate: false
-  xy: 1460, 736
-  size: 200, 200
-  orig: 200, 200
-  offset: 0, 0
-  index: -1
-UnitIcons/Witch-Knight
-  rotate: false
-  xy: 1252, 320
+  xy: 1252, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
