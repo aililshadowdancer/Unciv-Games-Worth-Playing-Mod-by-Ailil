@@ -37,23 +37,10 @@ jobs:
             exit 1
           fi
 
-      - name: Force Cache-Busting Image Link and Fix Atlas Paths
+      - name: Force Cache-Busting Image Link
         run: |
-          # 1. Appends a unique system timestamp to force Unciv web downloader updates
+          # Appends a unique system timestamp to force Unciv web downloader updates
           sed -i "1s/game.png/game.png?v=${{ github.sha }}/" game.atlas
-
-          # 2. Fixes the Nation Icon name path rule
-          sed -i 's/^NationIcons-Unseelie-Sidhe$/NationIcons\/Unseelie-Sidhe/g' game.atlas
-
-          # 3. Injects UnitIcons/ prefix for custom units
-          for unit in Warlock Witch-Knight Eldritch-Knight War-Dancer Dock-Alfari-Adept Dock-Alfari-Acolyte Dock-Alfari-Assassin Dock-Alfari-Ranger Dragon-Spear-Ballista Marks-Mage Spell-Sniper; do
-            sed -i "s/^${unit}$/UnitIcons\/${unit}/g" game.atlas
-          done
-
-          # 4. Injects BuildingIcons/ prefix for custom buildings
-          for bldg in Ceilidh-Hall Dancing-Cavern Masquerade-Ball Sylvan-Blessing Hidden-Paths Stone-Circle Trial-by-Combat; do
-            sed -i "s/^${bldg}$/BuildingIcons\/${bldg}/g" game.atlas
-          done
 
       - name: Write Official Atlases Rule File
         run: |
