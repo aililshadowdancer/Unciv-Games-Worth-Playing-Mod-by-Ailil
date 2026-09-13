@@ -30,7 +30,7 @@ jobs:
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . Icons
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
@@ -39,12 +39,11 @@ jobs:
 
       - name: Force Cache-Busting Image Link
         run: |
-          # Appends a unique system timestamp to force Unciv web downloader updates
-          sed -i "1s/game.png/game.png?v=${{ github.sha }}/" game.atlas
+          sed -i "1s/Icons.png/Icons.png?v=${{ github.sha }}/" Icons.atlas
 
       - name: Write Official Atlases Rule File
         run: |
-          echo '["game"]' > Atlases.json
+          echo '["Icons"]' > Atlases.json
 
       - name: Clean Pipeline Assets
         run: |
@@ -54,7 +53,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add game.png game.atlas Atlases.json
+          git add Icons.png Icons.atlas Atlases.json
           if ! git diff-index --quiet HEAD; then
             git commit -m "Auto-packed error-free unified single-sheet mod textures"
             git push origin HEAD:${{ github.ref_name }}
