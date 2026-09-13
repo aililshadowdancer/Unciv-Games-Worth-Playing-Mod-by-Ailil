@@ -1,138 +1,215 @@
 
 game.png
-size: 2048, 512
+size: 2048, 1024
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 Ceilidh Hall
   rotate: false
-  xy: 4, 212
+  xy: 4, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dancing Cavern
   rotate: false
-  xy: 4, 4
+  xy: 4, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Adept
   rotate: false
-  xy: 212, 212
+  xy: 212, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Assassin
   rotate: false
-  xy: 212, 4
+  xy: 4, 320
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dock-Alfari Ranger
   rotate: false
-  xy: 420, 212
+  xy: 212, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Dock-Alfari-Acolyte
   rotate: false
-  xy: 420, 4
+  xy: 420, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Dragon-Spear Ballista
   rotate: false
-  xy: 628, 212
+  xy: 212, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Eldritch-Knight
   rotate: false
-  xy: 628, 4
+  xy: 628, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Hidden Paths
   rotate: false
-  xy: 836, 212
+  xy: 420, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Marks-Mage
   rotate: false
-  xy: 836, 4
+  xy: 628, 320
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Masquerade Ball
   rotate: false
-  xy: 1044, 212
+  xy: 1044, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 NationIcons-Unseelie Sidhe
   rotate: false
-  xy: 1876, 312
+  xy: 4, 4
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 UnitIcons/Spell-Sniper
   rotate: false
-  xy: 1044, 4
+  xy: 628, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Stone Circle
   rotate: false
-  xy: 1252, 212
+  xy: 1044, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Sylvan Blessing
   rotate: false
-  xy: 1252, 4
+  xy: 1252, 736
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 Trial by Combat
   rotate: false
-  xy: 1460, 212
+  xy: 836, 112
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Acolyte
+  rotate: false
+  xy: 4, 112
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Adept
+  rotate: false
+  xy: 212, 320
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Assassin
+  rotate: false
+  xy: 420, 528
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dock-Alfari-Ranger
+  rotate: false
+  xy: 628, 736
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Dragon-Spear-Ballista
+  rotate: false
+  xy: 420, 320
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Eldritch-Knight
+  rotate: false
+  xy: 836, 736
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Marks-Mage
+  rotate: false
+  xy: 836, 528
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Spell-Sniper
+  rotate: false
+  xy: 836, 320
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/War-Dancer
   rotate: false
-  xy: 1460, 4
+  xy: 1252, 528
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Warlock
   rotate: false
-  xy: 1668, 212
+  xy: 1044, 112
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 UnitIcons/Witch-Knight
   rotate: false
-  xy: 1668, 4
+  xy: 1460, 528
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/War-Dancer
+  rotate: false
+  xy: 1044, 320
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Warlock
+  rotate: false
+  xy: 1460, 736
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+UnitIcons/Witch-Knight
+  rotate: false
+  xy: 1252, 320
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
