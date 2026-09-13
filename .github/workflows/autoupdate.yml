@@ -30,13 +30,18 @@ jobs:
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            # Runs your original, error-free setup. LibGDX automatically reads your Images/pack.json file natively!
             java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
             exit 1
           fi
+
+      - name: Force Cache-Busting Image Link
+        run: |
+          # Modifies the generated game.atlas header to append a unique system timestamp variable
+          # This forces Unciv's web downloader to pull the new image instead of old cached server data
+          sed -i "1s/game.png/game.png?v=${{ github.sha }}/" game.atlas
 
       - name: Write Official Atlases Rule File
         run: |
