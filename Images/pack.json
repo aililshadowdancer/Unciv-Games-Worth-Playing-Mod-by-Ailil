@@ -12,7 +12,7 @@
   "stripWhitespaceX": false,
   "stripWhitespaceY": false,
   "alias": false,
-  "format": "Alpha",
+  "format": "RGBA8888",
   "filterMin": "Linear",
   "filterMag": "Linear"
 }
