@@ -1,7 +1,7 @@
 
 game.png
 size: 2048, 512
-format: Alpha
+format: RGBA8888
 filter: Linear, Linear
 repeat: none
 Ceilidh Hall
