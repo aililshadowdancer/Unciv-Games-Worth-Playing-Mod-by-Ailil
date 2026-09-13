@@ -30,25 +30,8 @@ jobs:
       - name: Run Official LibGDX Packer
         run: |
           if [ -d "Images" ]; then
-            # Injecting the strict explicit Java parameters config matching Unciv core requirements
-            cat << 'EOF' > pack.json
-            {
-              "fast": true,
-              "stripWhitespaceX": false,
-              "stripWhitespaceY": false,
-              "combineSubdirectories": true,
-              "flattenPaths": false,
-              "premultiplyAlpha": false,
-              "useIndexes": false,
-              "maxWidth": 2048,
-              "maxHeight": 2048,
-              "filterMin": "Linear",
-              "filterMag": "Linear"
-            }
-            EOF
-            
-            # Executing the background file compiler while passing the clean parameters sheet
-            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game pack.json
+            # Runs your original, error-free setup. LibGDX automatically reads your Images/pack.json file natively!
+            java -cp Unciv.jar com.badlogic.gdx.tools.texturepacker.TexturePacker Images . game
             echo "Texture Packing process finished flawlessly!"
           else
             echo "Error: Images folder was not found."
@@ -57,12 +40,11 @@ jobs:
 
       - name: Write Official Atlases Rule File
         run: |
-          # Writes the clean, native array template format that Unciv checks for validation
           echo '["game"]' > Atlases.json
 
       - name: Clean Pipeline Assets
         run: |
-          rm -f Unciv.jar pack.json 2>/dev/null || true
+          rm -f Unciv.jar 2>/dev/null || true
 
       - name: Force Terminal Git Commit and Push
         run: |
